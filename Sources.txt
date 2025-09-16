@@ -1,0 +1,17 @@
+French embedding :
+https://huggingface.co/dangvantuan/french-document-embedding
+
+Comparateur de bases vectorielles :
+https://superlinked.com/vector-db-comparison
+
+Algo de recherche de mots-clés :
+https://en.wikipedia.org/wiki/Okapi_BM25
+(TF-IDF amélioré)
+
+Reciprocal Rank Fusion
+https://medium.com/@devalshah1619/mathematical-intuition-behind-reciprocal-rank-fusion-rrf-explained-in-2-mins-002df0cc5e2a
+
+https://medium.com/analytics-vidhya/combining-word-embeddings-to-form-document-embeddings-9135a66ae0f
+
+
+
