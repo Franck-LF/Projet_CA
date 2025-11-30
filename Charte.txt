@@ -1,0 +1,460 @@
+Voici une **charte d’utilisation complète** pour votre moteur de recherche documentaire interne.
+Je l’ai structurée comme un document officiel pouvant être diffusé auprès des utilisateurs « classiques » et des experts responsables du dépôt quotidien.
+
+---
+
+# **Charte d’utilisation du Moteur de Recherche Documentaire Interne – Assurances**
+
+## **1. Objet de la charte**
+
+La présente charte définit les règles, bonnes pratiques et responsabilités liées à l’utilisation du Moteur de Recherche Documentaire Interne (ci-après « l’Outil »), destiné à faciliter l’accès aux documents internes relatifs aux assurances.
+Elle s’applique à l’ensemble des collaborateurs ayant accès à l’Outil, ainsi qu’aux experts responsables du dépôt et de la mise à jour des documents dans le répertoire dédié.
+
+---
+
+# **2. Finalité du moteur de recherche**
+
+L’Outil permet :
+
+* d’accéder rapidement aux documents internes liés aux produits et services d’assurance ;
+* de centraliser l’information à jour dans un espace unique ;
+* de réduire les erreurs opérationnelles grâce à des documents validés et uniformisés ;
+* de soutenir l’efficacité des équipes opérationnelles, commerciales et techniques.
+
+Chaque nuit, les documents présents dans le répertoire dédié sont analysés, indexés et rendus disponibles pour la recherche.
+
+---
+
+# **3. Public concerné**
+
+### **3.1. Utilisateurs classiques (consultation)**
+
+Tout collaborateur disposant des droits d’accès pour rechercher, consulter et exploiter les documents.
+
+### **3.2. Experts référents (alimentation du dépôt)**
+
+Collaborateurs spécialement désignés pour déposer, organiser et mettre à jour les documents dans le répertoire utilisé pour l’indexation.
+
+---
+
+# **4. Règles et bonnes pratiques pour les Utilisateurs**
+
+## **4.1. Utilisation responsable et conforme**
+
+* Utiliser l’Outil uniquement dans le cadre professionnel.
+* Ne consulter que les documents nécessaires à l’exécution de ses missions.
+* Respecter la confidentialité et la sensibilité des informations contenues dans les documents.
+
+## **4.2. Recherche et exploitation de l’information**
+
+* Vérifier la date et la version du document avant utilisation.
+* En cas de doute sur la validité d’un contenu, contacter l’expert référent concerné.
+* Ne pas partager les documents en dehors des canaux internes autorisés.
+* Ne pas modifier les documents sans y être officiellement autorisé.
+
+## **4.3. Signalement des anomalies**
+
+Les utilisateurs doivent signaler :
+
+* tout document obsolète, erroné ou incomplet ;
+* toute absence de document attendu ;
+* toute anomalie technique du moteur de recherche.
+
+Les signalements doivent être effectués via les canaux prévus (support interne, email dédié, outil de ticketing…).
+
+---
+
+# **5. Règles et bonnes pratiques pour les Experts référents (alimentation du dépôt)**
+
+## **5.1. Responsabilité de la mise à jour**
+
+Les experts s’engagent à :
+
+* déposer quotidiennement les documents nécessaires dans le répertoire dédié ;
+* garantir que les documents sont à jour, complets, validés et conformes aux règles internes ;
+* supprimer les versions obsolètes ou les archiver dans le respect des directives internes.
+
+## **5.2. Nommage et structuration des fichiers**
+
+Afin de garantir une indexation efficace :
+
+* utiliser une nomenclature cohérente et normalisée (ex. : *TypeDocument_Produit_Date_Version.ext*) ;
+* éviter les caractères spéciaux pouvant gêner l’indexation ;
+* vérifier que les métadonnées internes (titres, sections, identifiants…) sont correctes ;
+* organiser le répertoire selon l'arborescence définie (produits, types, thématiques…).
+
+## **5.3. Qualité et conformité documentaire**
+
+Chaque document déposé doit :
+
+* avoir été relu et validé par le service compétent ;
+* respecter les formats autorisés (PDF, DOCX, XLSX, etc., selon les directives) ;
+* être exempt d’erreurs, doublons ou contenus contradictoires ;
+* respecter les règles relatives à la confidentialité, aux données personnelles et à la sécurité interne.
+
+## **5.4. Dépôt quotidien avant l’analyse nocturne**
+
+* Les documents doivent être déposés **avant l’heure limite définie** afin qu’ils soient indexés la nuit même.
+* Tout document déposé après cette limite sera indexé lors du cycle suivant.
+
+---
+
+# **6. Confidentialité et protection des données**
+
+* Les informations contenues dans l’Outil peuvent inclure des données sensibles ou stratégiques.
+* Il est strictement interdit d’extraire, copier, transférer ou diffuser ces documents en dehors de l’entreprise ou des personnes autorisées.
+* Toute violation de confidentialité pourra entraîner des sanctions disciplinaires.
+
+---
+
+# **7. Comportement attendu et sécurité**
+
+* Ne pas tenter de contourner ou modifier le fonctionnement de l’Outil.
+* Ne pas supprimer ou renommer un fichier déjà validé sans en informer les responsables.
+* Respecter les consignes de cybersécurité (mots de passe, accès partagé, etc.).
+
+---
+
+# **8. Support, maintenance et évolution de l’outil**
+
+* Une équipe technique est responsable de la maintenance du moteur de recherche.
+* Les utilisateurs peuvent faire remonter toute suggestion d’amélioration.
+* L’Outil pourra évoluer, être amélioré ou faire l’objet d’interruptions planifiées (maintenance), qui seront communiquées en amont.
+
+---
+
+# **9. Acceptation et adhésion**
+
+L’accès et l’utilisation de l’Outil valent acceptation de la présente charte.
+Chaque utilisateur est tenu de la lire et de l'appliquer strictement.
+
+---
+
+Si vous le souhaitez, je peux également :
+📌 **mettre en page la charte** dans un format PDF, Word ou Markdown
+📌 **ajouter une section juridique ou RGPD**
+📌 **rédiger une version plus courte / opérationnelle** à partager rapidement aux équipes
+
+Souhaitez-vous une autre version ?
+
+
+
+
+
+________________________________________________________
+
+
+Bien sûr ! Voici une **charte d’utilisation complète** pour votre moteur de recherche interne dédié aux documents d’assurance. Cette charte s’adresse à deux publics distincts mais complémentaires :
+
+1. **Les utilisateurs finaux** (collaborateurs, gestionnaires, commerciaux, etc.) qui effectuent des recherches.
+2. **Les experts contributeurs** (chargés de déposer quotidiennement les documents dans le répertoire dédié).
+
+Elle couvre les objectifs, les bonnes pratiques, les responsabilités, les aspects techniques de base, la sécurité, la confidentialité, ainsi que les modalités de support et d’évolution.
+
+---
+
+# **Charte d’utilisation du moteur de recherche interne – Documents Assurance**
+
+*Version 1.0 – En vigueur à compter du 1er décembre 2025*
+
+---
+
+## **1. Objectifs de l’outil**
+
+Le moteur de recherche interne a été conçu pour permettre aux collaborateurs de l’entreprise d’accéder rapidement, efficacement et de manière sécurisée à l’ensemble des **documents officiels, contractuels, réglementaires ou techniques** relatifs à l’activité d’assurance.
+
+Il vise à :
+
+- Centraliser l’accès à l’information pertinente.
+- Réduire le temps de recherche documentaire.
+- Garantir l’usage des versions à jour et validées des documents.
+- Faciliter la conformité réglementaire et la traçabilité.
+
+---
+
+## **2. Périmètre de l’outil**
+
+L’outil indexe **uniquement les documents** présents dans le **répertoire partagé dédié** (ex. : `\\serveur\docs_assurance\index_source`).  
+Les documents pris en charge incluent (liste non exhaustive) :
+
+- Polices d’assurance et avenants
+- Notices d’information et fiches produits
+- Bulletins d’information réglementaire
+- Documents de souscription
+- Guides internes et procédures opérationnelles
+- Courriers types, modèles de contrats
+- Documents liés à la conformité (RGPD, LCB-FT, etc.)
+
+**Ne sont pas indexés :**
+- Les documents temporaires ou de travail non finalisés.
+- Les courriels individuels ou conversations.
+- Les fichiers non textuels (images non annotées, vidéos, etc.), sauf s’ils contiennent des métadonnées exploitables.
+
+---
+
+## **3. Rôles et responsabilités**
+
+### **3.1. Utilisateurs finaux**
+
+**Définition :** Toute personne autorisée à accéder au moteur de recherche.
+
+**Responsabilités :**
+- Utiliser l’outil uniquement dans le cadre de ses fonctions professionnelles.
+- Ne pas tenter d’accéder à des documents ne relevant pas de son périmètre d’intervention ou de compétence.
+- Respecter la confidentialité des informations consultées.
+- Signaler tout document obsolète, erroné ou manquant via la procédure décrite en section 7.
+- Ne pas reproduire, diffuser ou modifier les documents sans autorisation explicite.
+
+### **3.2. Experts contributeurs**
+
+**Définition :** Collaborateurs chargés de déposer, nommer et classer quotidiennement les documents dans le répertoire source.
+
+**Responsabilités :**
+- S’assurer que **seuls les documents validés, à jour et finalisés** sont déposés dans le répertoire d’indexation.
+- Respecter strictement la **nomenclature et la structure de dossiers** définies (cf. section 5).
+- Supprimer ou archiver les documents obsolètes du répertoire source **avant la fin de journée** (l’indexation a lieu chaque nuit).
+- Ne pas laisser de fichiers temporaires (`.tmp`, `~`, etc.) ou de versions de travail dans le répertoire.
+- Signaler tout dysfonctionnement du processus d’indexation dès qu’il est identifié.
+
+---
+
+## **4. Fonctionnement technique général**
+
+- **Fréquence d’indexation** : une fois par nuit (entre 01h00 et 04h00).
+- **Type de documents indexés** : principalement les fichiers `.pdf`, `.docx`, `.xlsx`, `.pptx`, `.txt`, et certains formats spécialisés avec extraction de texte.
+- **Recherche** : moteur full-text avec support des mots-clés, opérateurs booléens (`ET`, `OU`, `SAUF`), filtres par date, type de document, ou catégorie.
+- **Interface** : accessible via [préciser l’URL ou le lien interne, ex. `https://search.entreprise.local`].
+
+> **Note** : les modifications effectuées après 00h00 ne seront visibles qu’au lendemain de l’indexation suivante.
+
+---
+
+## **5. Bonnes pratiques de nominalisation et d’organisation (pour les contributeurs)**
+
+Afin de garantir une recherche optimale, tous les documents déposés doivent suivre les règles suivantes :
+
+### **5.1. Structure des dossiers**
+```
+\\serveur\docs_assurance\index_source\
+├── Produits\
+│   ├── Auto\
+│   ├── Habitation\
+│   └── Santé\
+├── Réglementation\
+│   ├── RGPD\
+│   └── Assurantiels\
+├── Procédures Internes\
+└── Modèles\
+```
+
+### **5.2. Convention de nommage**
+Format recommandé :
+```
+[Catégorie]_[Sujet]_[DateYYYYMMDD]_[Version].extension
+```
+Exemple :
+- `Produit_Auto_Conditions_Générales_20251201_v2.pdf`
+- `Réglementation_RGPD_Charte_Confidentialité_20251115_v1.docx`
+
+> **Interdit :**
+- Noms génériques (`document_final.pdf`, `nouveau.docx`)
+- Majuscules excessives ou caractères spéciaux non standards (`é`, `à`, `#`, `&`, etc.)
+- Espaces multiples ou barres obliques dans le nom
+
+### **5.3. Métadonnées**
+Lorsque le format le permet (ex. : Word, PDF modifiable), veillez à renseigner les champs :
+- Auteur
+- Titre
+- Mots-clés
+- Date de révision
+
+Cela améliore significativement la pertinence des résultats.
+
+---
+
+## **6. Sécurité et confidentialité**
+
+- L’accès au moteur de recherche est **authentifié** via les identifiants professionnels (SSO ou LDAP).
+- Les droits d’accès sont **gérés par rôles** : certains documents sensibles ne sont visibles que par des profils autorisés.
+- L’historique de recherche **n’est pas conservé** au-delà de 24h (sauf besoin légal ou audit interne).
+- Aucun document ne quitte l’environnement interne. L’outil ne communique **aucune donnée à des serveurs externes**.
+
+> **Rappel** : le non-respect des règles de confidentialité peut entraîner des sanctions disciplinaires, conformément à la politique de sécurité de l’entreprise.
+
+---
+
+## **7. Maintenance, support et amélioration continue**
+
+### **7.1. Support utilisateurs**
+- Problèmes d’accès, résultats manquants, bugs d’interface : contacter **support-it@entreprise.com** ou ouvrir un ticket via le portail IT.
+- Pour signaler un **document obsolète ou erroné**, utiliser le bouton **« Signaler un document »** présent sur chaque fiche de résultat.
+
+### **7.2. Support contributeurs**
+- Questions sur la nomenclature, la structure ou le processus d’indexation : contacter **assurance-docs@entreprise.com**.
+- Une documentation technique détaillée est disponible sur le wiki interne (lien : [insérer lien]).
+
+### **7.3. Évolution**
+L’outil est en constante amélioration. Les retours utilisateurs sont **essentiels**. Une enquête trimestrielle sera envoyée pour recueillir vos suggestions.
+
+---
+
+## **8. Engagement de bonne utilisation**
+
+En utilisant cet outil, vous vous engagez à respecter l’ensemble des dispositions de cette charte.  
+Toute utilisation frauduleuse, abusive ou non conforme aux objectifs professionnels pourra faire l’objet de mesures disciplinaires.
+
+---
+
+## **9. Contact**
+
+Pour toute question relative à cette charte ou à l’usage de l’outil :  
+📧 **assurance-docs@entreprise.com**  
+📞 **Poste interne : 4567**
+
+---
+
+*Document approuvé par la Direction des Opérations et la DSI – Décembre 2025*
+
+---
+
+Souhaitez-vous que je vous fournisse également une version PDF de cette charte, ou un modèle Word facilement personnalisable avec votre logo et vos liens internes ?
+
+
+
+
+
+________________________________________________________
+
+
+
+Absolument. Voici une charte d'utilisation complète, structurée pour s'adresser à la fois aux utilisateurs finaux et aux experts en charge de l'alimentation du moteur de recherche.
+
+---
+
+### **Charte d'Utilisation du Moteur de Recherche Documentaire « [Nom du Moteur de Recherche] »**
+
+**Version :** 1.0
+**Date :** [Date]
+**Portée :** Cette charte s'applique à tous les collaborateurs de [Nom de l'Entreprise] utilisant le moteur de recherche et aux experts chargés de son alimentation.
+
+---
+
+#### **Article 1 : Préambule & Objet**
+
+Le moteur de recherche « [Nom du Moteur de Recherche] » a été mis en place pour centraliser et rendre accessible l'ensemble de la documentation technique, commerciale et juridique relative aux activités d'assurance de [Nom de l'Entreprise]. Son efficacité dépend directement de la qualité de son alimentation et de la rigueur de son utilisation.
+
+La présente charte a pour objet de définir les règles et bonnes pratiques à respecter par l'ensemble des parties prenantes : les **Utilisateurs** et les **Experts Documentaires**. Son respect est impératif pour garantir la pertinence, la sécurité et la fiabilité des informations consultées.
+
+---
+
+### **PARTIE I : CHARTE DE L'UTILISATEUR FINAL**
+
+**Public visé :** Tous les collaborateurs habilités à consulter les documents.
+
+#### **Article 2 : Accès et Finalité**
+
+2.1. L'accès au moteur de recherche est strictement réservé aux collaborateurs de [Nom de l'Entreprise] dans le cadre de leurs fonctions.
+2.2. L'outil est destiné à un usage professionnel pour :
+    *   Répondre à des questions précises sur les produits d'assurance.
+    *   Préparer des devis, des contrats ou des notes techniques.
+    *   Se conformer aux règles et procédures en vigueur.
+2.3. Toute utilisation à des fins personnelles ou tout détournement de sa finalité est interdit.
+
+#### **Article 3 : Règles d'Utilisation et Bonnes Pratiques**
+
+3.1. **Confidentialité des Résultats :**
+    *   Les documents et informations obtenus via le moteur sont confidentiels et couverts par le secret professionnel. Leur diffusion en dehors des personnes habilitées est strictement interdite.
+
+3.2. **Pertinence des Recherches :**
+    *   Utilisez des mots-clés précis et pertinents. Par exemple, préférez « *Clause de résiliation annuelle contrat auto professionnel* » à « *comment résilier un contrat* ».
+    *   Exploitez les filtres avancés (type de document, date, thématique) pour affiner vos résultats.
+    *   Consultez la méta-description et le titre du document pour évaluer rapidement sa pertinence avant de l'ouvrir.
+
+3.3. **Responsabilité de l'Utilisateur :**
+    *   L'utilisateur reste responsable de l'interprétation et de l'utilisation qu'il fait des informations trouvées. En cas de doute sur la validité, la version ou l'applicabilité d'un document, il est de sa responsabilité de contacter l'expert métier concerné.
+    *   Le moteur de recherche est un outil d'aide à la décision, il ne se substitue pas à l'expertise et au jugement professionnel.
+
+#### **Article 4 : Signalement des Anomalies**
+
+4.1. Si vous constatez un des problèmes suivants, vous devez le signaler immédiatement :
+    *   Document manquant ou introuvable.
+    *   Document obsolète ou erroné.
+    *   Document corrompu ou illisible.
+    *   Information confidentielle accessible sans autorisation.
+4.2. **Procédure de signalement :** Utilisez exclusivement le formulaire de contact dédié « [Lien vers le formulaire/Adresse email] » en précisant le titre du document, la date présumée et la nature du problème.
+
+---
+
+### **PARTIE II : CHARTE DE L'EXPERT DOCUMENTAIRE**
+
+**Public visé :** Les collaborateurs ou équipes désignés pour déposer et gérer les documents dans le répertoire d'indexation.
+
+#### **Article 5 : Rôle et Responsabilités**
+
+5.1. L'Expert Documentaire est le garant de la qualité, de l'exhaustivité et de l'actualité de l'information indexée dans le moteur de recherche.
+5.2. Ses missions principales sont :
+    *   **Alimentation :** Déposer les nouveaux documents dans le répertoire désigné.
+    * **Validation :** S'assurer de la validité et de la version officielle de chaque document avant dépôt.
+    * **Archivage :** Retirer ou archiver les documents obsolètes selon la procédure définie.
+    * **Signalement :** Rapporter tout dysfonctionnement du processus d'indexation.
+
+#### **Article 6 : Procédures de Dépôt et de Gestion des Documents**
+
+6.1. **Fréquence et Planning :**
+    *   Le dépôt des nouveaux documents ou de leurs mises à jour doit être effectué **quotidiennement** avant [Heure, ex: 17h00] pour garantir leur disponibilité après l'indexation nocturne.
+    *   Toute absence ou empêchement doit être anticipé et un remplaçant doit être désigné et formé.
+
+6.2. **Contrôle Qualité Pré-dépôt :** Avant tout dépôt, l'expert doit vérifier :
+    *   **L'exactitude :** Le document est-il la version finale et approuvée ?
+    *   **La pertinence :** Le document est-il destiné à être diffusé et consulté par les équipes ?
+    *   **La confidentialité :** Le document ne contient-il pas d'informations sensibles non conformes à la politique de sécurité de l'entreprise ?
+    *   **La conformité technique :** Le document est-il dans un format accepté (PDF, DOCX, XLSX, etc.) et n'est pas corrompu ?
+
+6.3. **Nommage des Fichiers :**
+    *   Suivez scrupuleusement la convention de nommage : `[Thématique]_[Nom du Document]_[Date AAAAMMJJ]_[Version].pdf`
+    *   *Exemple : `Auto_Contrat_Pro_20231027_V2.pdf`*
+    *   Un nommage clair est essentiel pour la compréhension du document par les utilisateurs et pour le bon fonctionnement de l'algorithme de recherche.
+
+6.4. **Gestion des Versions et des Obsolescences :**
+    *   Lorsqu'un document est mis à jour, la version précédente doit être **immédiatement retirée** du répertoire d'indexation et archivée selon la procédure en vigueur.
+    *   Ne jamais laisser coexister deux versions différentes d'un même document actif dans le répertoire.
+
+#### **Article 7 : Sécurité et Intégrité du Système**
+
+7.1. L'expert documentaire s'engage à ne déposer que des documents provenant de sources officielles et vérifiées.
+7.2. Il est strictement interdit de déposer des documents personnels, des fichiers exécutables (.exe, .bat, etc.) ou tout autre fichier non conforme à la finalité de l'outil.
+7.3. Le répertoire d'indexation doit être maintenu propre et organisé. Aucune structure de sous-dossiers superflue ne doit être créée sans validation préalable.
+
+---
+
+### **PARTIE III : DISPOSITIONS COMMUNES & ENGAGEMENTS**
+
+#### **Article 8 : Traçabilité et Confidentialité**
+
+8.1. Les recherches et les accès aux documents peuvent être journalisés à des fins de traçabilité, d'audit et d'amélioration du service.
+8.2. Chaque collaborateur, qu'il soit utilisateur ou expert, s'engage à respecter la confidentialité la plus stricte sur le contenu des documents auxquels il a accès.
+
+#### **Article 9 : Maintenance et Évolutions**
+
+9.1. La maintenance technique et l'indexation ont lieu chaque nuit. Le service peut être indisponible entre [Heure de début, ex: 23h00] et [Heure de fin, ex: 06h00].
+9.2. Les suggestions d'amélioration (nouvelles fonctionnalités, champs de filtrage, etc.) sont les bienvenues et doivent être remontées via le canal dédié.
+
+#### **Article 10 : Non-Respect de la Charte**
+
+10.1. Tout manquement à la présente charte, notamment en matière de confidentialité, de qualité des dépôts ou de non-respect des procédures, pourra faire l'objet de mesures disciplinaires, conformément au règlement intérieur de [Nom de l'Entreprise].
+
+---
+
+**Validation**
+
+La présente charte a été approuvée le [Date] par :
+
+**Le Directeur des Systèmes d'Information,**
+[Nom et Signature]
+
+**Le Responsable Qualité et Conformité,**
+[Nom et Signature]
+
+**Pour télécharger et signer votre exemplaire de la charte, cliquez [ici].**
+
+---
