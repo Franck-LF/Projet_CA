@@ -1,0 +1,61 @@
+y'a t'il une fonction "Streamlit "pour figer une Sidebar ?
+
+Il n'existe pas de fonction native simple (du type st.sidebar.freeze()) dans l'API standard de Streamlit pour rendre la barre latérale totalement inamovible ou impossible à fermer par l'utilisateur.
+
+Cependant, selon ce que vous entendez par "figer", il existe des solutions de contournement efficaces.
+
+Voici les trois scénarios possibles et leurs solutions :
+
+1. Si vous voulez qu'elle reste visible au scroll (Sticky)
+
+Par défaut, la sidebar de Streamlit est déjà "sticky" (fixe). *
+
+Lorsque vous faites défiler le contenu principal de votre page (le corps du texte), la barre latérale reste normalement fixe sur la gauche et ne disparaît pas vers le haut.
+
+Si ce n'est pas le cas chez vous, c'est peut-être dû à un conflit avec une autre bibliothèque ou un zoom navigateur excessif.
+
+2. Si vous voulez l'empêcher de se fermer (Masquer le bouton "X" ou ">")
+
+Si votre objectif est d'empêcher l'utilisateur de réduire (masquer) la sidebar, vous devez utiliser une injection de CSS personnalisé. Cela retire la petite flèche qui permet de fermer le panneau.
+
+Voici le code à insérer dans votre script :
+
+Python
+import streamlit as st
+
+# Configuration de la page pour forcer l'ouverture au démarrage
+st.set_page_config(initial_sidebar_state="expanded")
+
+# Injection de CSS pour cacher le bouton de fermeture de la sidebar
+st.markdown(
+    """
+    <style>
+        [data-testid="stSidebarCollapsedControl"] {
+            display: none;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+st.sidebar.title("Navigation")
+st.sidebar.write("Cette sidebar ne peut pas être fermée.")
+st.write("Contenu principal de la page.")
+Note importante : Les classes CSS (comme stSidebarCollapsedControl) peuvent changer lors des mises à jour de Streamlit. C'est une méthode dite "fragile" à vérifier si vous mettez à jour votre version de Streamlit.
+
+3. Si vous voulez définir son état par défaut (Ouvert/Fermé)
+
+Si vous voulez simplement vous assurer que la sidebar est toujours ouverte (ou fermée) lorsque l'utilisateur arrive sur l'application, utilisez la configuration de page native :
+
+Python
+st.set_page_config(
+    page_title="Mon App",
+    initial_sidebar_state="expanded"  # Options: "auto", "expanded", "collapsed"
+)
+Résumé
+
+Objectif	Solution
+Garder la barre visible au scroll	Comportement par défaut (rien à faire).
+Forcer l'ouverture au chargement	st.set_page_config(initial_sidebar_state="expanded")
+Interdire la fermeture (supprimer la flèche)	Hack CSS via st.markdown (voir code plus haut).
+Voulez-vous que je vous explique comment appliquer ce style CSS uniquement sur certaines pages de votre application ?
