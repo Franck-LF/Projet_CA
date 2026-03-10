@@ -24,7 +24,7 @@ if __name__ == '__main__':
     #  PARAMATERS
     # ------------------------------
     
-    nb_files = 1000
+    nb_files = 500
 
     now = datetime.datetime.now()
     print('-' * 20 + ' START ' + '-' * 20)
@@ -59,17 +59,17 @@ if __name__ == '__main__':
     # param.path = "C:\\Users\\S589669\\Documents\\DEV\\DOC MODIF\\"
     # param.path = "S:\\DAB-ABP\\RU-Animateurs-Analystes\\BIBLIOTHEQUE\\"
     # param.path = "\\CPCAPD2BURV2.zcam.ztech\CAP10BURS\DAB-ABP\RU-Animateurs-Analystes\\BIBLIOTHEQUE\\"
-    param.real_path = "S:\\DAB-ABP\\RU-Animateurs-Analystes\\BIBLIOTHEQUE\\"
-    param.path = "W:\\"
+    # param.real_path = "S:\\DAB-ABP\\RU-Animateurs-Analystes\\BIBLIOTHEQUE\\"
+    param.path = "C:\\Users\\Utilisateur\\Documents\\Projet_CA\\DOC ASSURANCE\\"
 
     param.lst_filetypes = [
         'pdf',
         'pptx',
         'docx',
         # 'doc',
-        'xlsx',
-        'xlsm',
-        'xls',
+        # 'xlsx',
+        # 'xlsm',
+        # 'xls',
         ]
     param.max_files = nb_files
     param.verbose = 1
@@ -101,7 +101,7 @@ if __name__ == '__main__':
     param = ParamConversion
     # param.path_temp_pdf = "C:\\Users\\S589669\\Documents\\DEV\\_TEMP_PDF_TEST\\"
     # param.path_temp_pdf = "C:\\Users\\S589669\\Documents\\DEV\\_TEMP_PDF_MODIF\\"
-    param.path_temp_pdf = "E:\\YBP10\\ApachePub_Php8\\PPB\\bibliotheque-ABP\\TEMP_PDF\\"
+    param.path_temp_pdf = "C:\\Users\\Utilisateur\\Documents\\Projet_CA\\TEMP_PDF\\"
 
     param.max_files = nb_files
     param.verbose = 0

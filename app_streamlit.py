@@ -47,7 +47,7 @@ def Load_ScipyMatrix(filename):
 @st.cache_resource
 def Load_NLP(ff = ""):
     df_sw = pd.read_csv('CSV/stopwords-fr_CUSTOM.csv')
-    nlp = spacy.load("E:\\YBP10\\ApachePub_Php8\\PPB\\bibliotheque-ABP\\fr_core_news_md-3.8.0\\fr_core_news_md\\fr_core_news_md-3.8.0\\")
+    nlp = spacy.load("fr_core_news_md")
     nlp.Defaults.stop_words.clear()
     nlp.Defaults.stop_words |= {word for word in df_sw.values.flatten().tolist()}
     return nlp
@@ -214,7 +214,7 @@ def local_css(file_name):
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 # Load the CSS file
-local_css("""E:/YBP10/ApachePub_Php8/PPB/bibliotheque-ABP/.streamlit/assets/style.css""")
+local_css(""".streamlit/assets/style.css""")
 
 
 
@@ -234,7 +234,7 @@ tfidf_matrix_titles = Load_ScipyMatrix("VECTORS/tfidf_matrix_titles" + suf + ".n
 tfidf_matrix_texts = Load_ScipyMatrix("VECTORS/tfidf_matrix_texts" + suf + ".npz")
 # tfidf_matrix_titles_paths = Load_ScipyMatrix("VECTORS/tfidf_matrix_titles_paths" + suf + ".npz")
 
-path_temp_pdf = "E:\\YBP10\\ApachePub_Php8\\PPB\\bibliotheque-ABP\\TEMP_PDF\\"
+path_temp_pdf = "TEMP_PDF\\"
 # path_temp_pdf = "../_TEMP_PDF/" # With all docs
 radio_content = "titre"
 display_Button = False
@@ -261,7 +261,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-image = Image.open("E:/YBP10/ApachePub_Php8/PPB/bibliotheque-ABP/IMAGES/logo.png")
+image = Image.open("IMAGES/logo.png")
 # st.image(image, width=128)
 
 # --- Bannière CA ---

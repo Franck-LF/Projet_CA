@@ -45,7 +45,8 @@ class TextProcessing():
 
     def init_nlp(self):
         df_sw = pd.read_csv('CSV/stopwords-fr_CUSTOM.csv')
-        self.nlp = spacy.load("E:\\YBP10\\ApachePub_Php8\\PPB\\bibliotheque-ABP\\fr_core_news_md-3.8.0\\fr_core_news_md\\fr_core_news_md-3.8.0\\")
+        self.nlp = spacy.load("fr_core_news_md")
+        # self.nlp = spacy.load("E:\\YBP10\\ApachePub_Php8\\PPB\\bibliotheque-ABP\\fr_core_news_md-3.8.0\\fr_core_news_md\\fr_core_news_md-3.8.0\\")
         self.nlp.Defaults.stop_words.clear()
         self.nlp.Defaults.stop_words |= {word for word in df_sw.values.flatten().tolist()}
 

@@ -18,7 +18,7 @@ import pdfplumber
 from pptx import Presentation
 from docx import Document
 from openpyxl import load_workbook
-import xlrd # To read xls files
+# import xlrd # To read xls files
 
 
 
