@@ -13,11 +13,14 @@ DIV/
 PDF/
 Images/
 Pres_IA/
-Vis Mon Job/
-
-# special files
-X.npy
-y.npy
+env_ca/
+DIV DOC/
+DOC ASSURANCE/
+DOC ASSURANCE - Copie/
+DOC NO ASSURANCE/
+VECTORS/
+TEMP_PDF/
+LOGS/
 
 # C extensions
 *.so
