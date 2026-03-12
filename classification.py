@@ -2,14 +2,17 @@
 import os
 import re
 import spacy
-import datetime
+import scipy as sp
 import pandas as pd
 import pdfplumber
 from unidecode import unidecode
-
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score, recall_score, precision_score
+import pickle
 
 def extract_text_from_pdf(path_and_filename:str) -> str:
-    text, author, modDate = "", "", ""
+    text = ""
     with pdfplumber.open(path_and_filename) as pdf:
         for i, page in enumerate(pdf.pages):
             current_text = page.extract_text()
@@ -29,6 +32,7 @@ def clean_XXX(text):
 def clean_special_char(text):
     text = re.sub(r"…", '.', text)
     text = text.replace('.', ' ')
+    text = text.replace(',', ' ')
     text = text.replace('-', ' ')
     text = text.replace('_', ' ')
     text = text.replace('(', ' ')
@@ -38,12 +42,19 @@ def clean_special_char(text):
     text = text.replace('?', ' ')
     text = text.replace('!', ' ')
     text = text.replace('%', ' ')
+    text = text.replace('<', ' ')
+    text = text.replace('>', ' ')
+    text = text.replace('<', ' ')
+    text = text.replace('«', ' ')
+    text = text.replace('»', ' ')
+    text = text.replace('€', ' ')
+    # text = text.replace('’', ' ')
     # return re.sub(r"\.{1,}", '.', re.sub(r"…", '.', text))
     return text
 
 def clean_slashes(text):
-    text = text.replace(' / ', ' ')
-    return text.replace(' \\ ', ' ')
+    text = text.replace('/', ' ')
+    return text.replace('\\', ' ')
     
 def cleaning_process(text):
     text = text.lower()
@@ -53,27 +64,21 @@ def cleaning_process(text):
     text = clean_slashes(text)
     return clean_spaces_and_line_terminator(text)
 
-def extract_text_from_all_docs(path1, path2, texts, labels):
-    for item in os.listdir(path1):
+def extract_text_from_all_docs(path, nb_max = 10):
+    lst_texts = []
+    lst_titles = []
+    for i, item in enumerate(os.listdir(path)):
+        if i == nb_max:
+            break
         print(item)
-        text = extract_text_from_pdf(path1 + '\\' + item)
+        text = extract_text_from_pdf(path + '\\' + item)
         if len(text.strip()) > 0:
-            texts.append(text)
-            labels.append(1)
-
-    for item in os.listdir(path2):
-        print(item)
-        text = extract_text_from_pdf(path2 + '\\' + item)
-        if len(text.strip()) > 0:
-            texts.append(text)
-            labels.append(0)
-
-    df = pd.DataFrame.from_dict({
-        'Texts': texts,
-        'Labels': labels,
+            lst_texts.append(text)
+            lst_titles.append(item)
+    return pd.DataFrame.from_dict({
+        'Titles': lst_titles,
+        'Texts': lst_texts,
         })
-
-    return df
 
 def init_nlp():
     df_sw = pd.read_csv('CSV/stopwords-fr_CUSTOM.csv')
@@ -83,15 +88,24 @@ def init_nlp():
     return nlp
 
 nlp = init_nlp()
+# print(nlp.Defaults.stop_words)
 
 def remove_stopwords_punct(text):
-    print(f"remove_stopwords_punct : {text[:30]}...")
     doc = nlp(text)
-    return [token for token in doc if not (token.is_stop or token.is_punct)]
+    # for token in doc:
+    #     print(token.text, token.lemma_, token.is_stop)
+    temp = [token for token in doc if not (token.is_stop or token.is_punct or token.is_digit or token.is_currency)]
+    return [unidecode(token.lemma_) for token in temp if len(token.lemma_) > 2]
 
-def lemmatizer_EX(doc):
-    text = ' '.join([token.lemma_ for token in doc])
-    return re.sub(' +', ' ', text).strip() 
+def chunks_texts(df):
+    set_data = set()
+    for i, row in df.iterrows():
+        lst = row['Texts_Token']
+        for size in range(2, 8):
+            for j in range(len(lst) - size + 1):
+                extract = ' '.join(set(lst[j:j+size]))
+                set_data.add(extract)
+    return list(set_data)
 
 
 
@@ -99,73 +113,105 @@ def lemmatizer_EX(doc):
 # MAIN
 # ---------------------------
 
-now = datetime.datetime.now()
 
-nb_files = 500
+print("Extractig texts from ASSURANCE documents")
 path1 = "DOC ASSURANCE - Copie"
+df = extract_text_from_all_docs(path1, 1)
+
+print("Cleaning texts")
+df_cleaned = df.copy()
+df_cleaned['Texts_Cleaned']  = df_cleaned['Texts'].apply(cleaning_process)
+df_cleaned.drop(columns = ['Texts'], inplace = True)
+
+print("Tokenization")
+df_token = df_cleaned.copy()
+df_token['Texts_Token']  = df_token['Texts_Cleaned'].apply(remove_stopwords_punct)
+df_token.drop(columns = ['Texts_Cleaned'], inplace = True)
+
+print("================ Create Data ================")
+
+print("1. From ASSURANCE documents")
+set_data = chunks_texts(df_token)
+lst_data = list(set_data)[:70]
+print(lst_data[:10])
+print("Length Data:", len(lst_data))
+labels = [1] * len(lst_data)
+
+print("Extractig texts from ASSURANCE documents")
 path2 = "DOC NO ASSURANCE"
-texts = []
-labels = []
+df = extract_text_from_all_docs(path2, 1)
 
-df = None
-df_cleaned = None
-df_token = None
-df_lem = None
-df_accents = None
+print("Cleaning texts")
+df_cleaned = df.copy()
+df_cleaned['Texts_Cleaned']  = df_cleaned['Texts'].apply(cleaning_process)
+df_cleaned.drop(columns = ['Texts'], inplace = True)
 
-b_extraction = False
-b_text_cleaning = True
-b_tokenization = True
-b_lemmatization = True
-b_accents = True
+print("Tokenization")
+df_token = df_cleaned.copy()
+df_token['Texts_Token']  = df_token['Texts_Cleaned'].apply(remove_stopwords_punct)
+df_token.drop(columns = ['Texts_Cleaned'], inplace = True)
 
-if b_extraction:
-    print("Extractig texts from documents")
-    df = extract_text_from_all_docs(path1, path2, texts, labels)
-    df.to_csv('CSV/df_data_ia.csv')
+print("2. From NO ASSURANCE documents")
+set_data = chunks_texts(df_token)
+lst_temp = list(set_data)[:70]
+print(lst_temp[:10])
+print("Length Data:", len(lst_temp))
+lst_data.extend(lst_temp)
+labels.extend([0] * len(lst_temp))
+print("Length Data:  ", len(lst_data))
+print("Length Labels:", len(labels))
 
-else:
-    df = pd.read_csv('CSV/df_data_ia.csv', index_col = [0])
+df_data = pd.DataFrame.from_dict({
+    'Texts': lst_data,
+    'Labels': labels,
+    })
 
-if b_text_cleaning:
-    print("Cleaning texts")
-    df_cleaned = df.copy()
-    df_cleaned['Texts_Cleaned']  = df_cleaned['Texts'].apply(cleaning_process)
-    df_cleaned.drop(columns = ['Texts'], inplace = True)
-    df_cleaned.to_csv('CSV/df_data_ia_cleaned.csv')
+# Vectorization
+vectorizer = TfidfVectorizer()
+tfidf_texts_matrix = vectorizer.fit_transform(df_data.Texts)
+print("X.shape:", tfidf_texts_matrix.shape)
 
-else:
-    df_cleaned = pd.read_csv('CSV/df_data_ia_cleaned.csv', index_col = [0])
+# Save the vectorizer and the matrix
+filename = f"VECTORS/X_texts.npz"
+sp.sparse.save_npz(filename, tfidf_texts_matrix)
+# filename = f"VECTORS/y_labels.npz"
+# sp.sparse.save_npz(filename, labels)
 
-if b_tokenization:
-    print("Tokenization")
-    df_token = df_cleaned.copy()
-    df_token['Texts_Token']  = df_token['Texts_Cleaned'].apply(remove_stopwords_punct)
-    df_token.drop(columns = ['Texts_Cleaned'], inplace = True)
-    df_token.to_csv('CSV/df_data_ia_token.csv')
+filename = f"VECTORS/vectorizer_ia_texts.pkl"
+with open(filename, 'wb') as file:
+    pickle.dump(vectorizer, file)
 
-else:
-    df_cleaned = pd.read_csv('CSV/df_data_ia_token.csv', index_col = [0])
+# Split the data into training and testing sets
+from sklearn.model_selection import train_test_split
 
-if b_lemmatization:
-    print("Lemmatization")
-    df_lemm = df_cleaned.copy()
-    df_lemm['Texts_Lemm'] = df_lemm['Texts_Token'].apply(lemmatizer_EX)
-    df_lemm.drop(columns=['Texts_Token'], inplace = True)
-    df_cleaned.to_csv('CSV/df_data_ia_lemm.csv')
+X_train, X_test, y_train, y_test = train_test_split(tfidf_texts_matrix, df_data.Labels, test_size=0.2, random_state=42)
 
-else:
-    df_lemm = pd.read_csv('CSV/df_data_ia_lemm.csv', index_col = [0])
+# Model
+model = LogisticRegression()
+model.fit(X_train, y_train)
 
-if b_accents:
-    print("Accents")
-    df_no_accents = df_lemm.copy()
-    df_no_accents['Texts_no_accent'] = df_no_accents['Texts_Lemm'].apply(unidecode)
-    df_no_accents.drop(columns=['Texts_Lemm'], inplace = True)
-    df_cleaned.to_csv('CSV/df_data_ia_no_accents.csv')
+print("Model Score:", model.score(X_test, y_test))
+# print("Model Accuracy:", model.accuracy_score(X_test, y_test))
 
-else:
-    df_cleaned = pd.read_csv('CSV/df_data_ia_accents.csv', index_col = [0])
+y_pred = model.predict(X_train)
+print("Training Accuracy", accuracy_score(y_train, y_pred))
+print("Training Precision", precision_score(y_train, y_pred))
+print("Training Recall", recall_score(y_train, y_pred))
 
+# Predicting with a validation dataset
+y_pred = model.predict(X_test)
+print("Test Accuracy", accuracy_score(y_test, y_pred))
+print("Test Precision", precision_score(y_test, y_pred))
+print("Test Recall", recall_score(y_test, y_pred))
 
+# test 1
+phrase = ["je dois déclarer un sinistre"]
+X_test = vectorizer.transform(phrase)
+prediction = model.predict(X_test)
+print("Assurance ?" , prediction[0])
 
+# test 2
+phrase = ["recette de cuisine"]
+X_test = vectorizer.transform(phrase)
+prediction = model.predict(X_test)
+print("Assurance ?" , prediction[0])
