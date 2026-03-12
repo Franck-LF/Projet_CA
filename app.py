@@ -1,49 +1,59 @@
 
-
-import streamlit as st
-import base64
-import streamlit as st
-from pdf2image import convert_from_path
-
-from streamlit_pdf_viewer import pdf_viewer
+import os
+from flask import Flask, render_template, request
+import requests
 
 
 
-path = """C:/Users/Utilisateur/Documents/Projet_CA/PDF/"""
-pdf_file = path + "image.pdf"
-
-uploaded_file = st.file_uploader(pdf_file, type="pdf")
-
-
-cols = st.columns(3)
-
-with cols[0]:
-    st.title("📄 Affichage direct du PDF dans Streamlit")
-
-    with open(pdf_file, "rb") as f:
-        base64_pdf = base64.b64encode(f.read()).decode("utf-8")
-
-    # Afficher dans un iframe
-    # pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="700" height="900" type="application/pdf"></iframe>'
-    # st.markdown(pdf_display, unsafe_allow_html=True)
-    st.write("Test1")
+# ---------------- Flask App --------------
+app = Flask(__name__)
 
 
 
-with cols[1]:
-    st.title("🖼️ Affichage du PDF converti en images")
 
-    # Charger et convertir le PDF en images (toutes les pages)
-    # pages = convert_from_path(pdf_file, dpi=150)
+# ---------------- Routes ----------------
 
-    # Afficher chaque page
-    # for i, page in enumerate(pages):
-    #     st.image(page, caption=f"Page {i+1}", use_column_width=True)
-    st.write("Test2")
+app = Flask(__name__)
+
+FASTAPI_URL = "http://127.0.0.1:8000/predict"
 
 
+# récupérer token
+token_response = requests.post(
+    "http://127.0.0.1:8000/token",
+    data={
+        "username": "admin",
+        "password": "admin"
+    }
+)
 
-with cols[2]:
-    st.title("Avec PDF Viewer")
+token = token_response.json()["detail"][0]["input"].split("&")[1].split("=")[1]
 
-    pdf_viewer(pdf_file)
+
+@app.route("/", methods=["GET", "POST"])
+def index():
+    
+    result = None
+
+    if request.method == "POST":
+        text = request.form["text"]
+        print("Text:", text)
+
+        response = requests.post(
+            FASTAPI_URL,
+            params={"text": text},
+            headers={"Authorization": f"Bearer {token}"}
+        )
+        
+        print("Response Status Code:", response.status_code)
+        if response.status_code == 200:
+            result = response.json()
+        
+        print("Result:", result)
+    return render_template("index.html", result=result)
+
+
+if __name__ == "__main__":
+    app.run(debug=True, port=5000)
+
+
