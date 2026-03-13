@@ -13,8 +13,8 @@ from tools import cleaning_process, extract_text_from_all_docs, init_nlp, remove
 
 nlp = init_nlp()
 
-nb_max_docs = 12
-nb_max_chunks = 4000
+nb_max_docs = 20
+nb_max_chunks = 40000
 
 
 print("Extractig texts from ASSURANCE documents")
