@@ -13,8 +13,8 @@ from tools import cleaning_process, extract_text_from_all_docs, init_nlp, remove
 
 nlp = init_nlp()
 
-nb_max_docs = 20
-nb_max_chunks = 40000
+nb_max_docs = 10
+nb_max_chunks = 10000
 
 
 print("Extractig texts from ASSURANCE documents")
@@ -80,12 +80,13 @@ print("X.shape:", tfidf_texts_matrix.shape)
 filename = f"VECTORS/X_texts.npz"
 sp.sparse.save_npz(filename, tfidf_texts_matrix)
 
-# filename = f"VECTORS/vectorizer_ia_texts.pkl"
-# with open(filename, 'wb') as file:
-#     pickle.dump(vectorizer, file)
+filename = f"VECTORS/vectorizer_ia_texts.pkl"
+with open(filename, 'wb') as file:
+    pickle.dump(vectorizer, file)
     
 # Split the data into training and testing sets
 from sklearn.model_selection import train_test_split
+
 
 X_train, X_test, y_train, y_test = train_test_split(tfidf_texts_matrix, df_data.Labels, test_size=0.3, random_state=42)
 

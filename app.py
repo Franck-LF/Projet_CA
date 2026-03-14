@@ -1,3 +1,11 @@
+# ---------------------------------------------------------------
+#
+# Application Flask pour l'interface utilisateur de classification de textes d'assurance.
+#
+# - Cette appli Flask requête l'API FastAPI qui expose le modèle d'IA de classification.
+#
+# ---------------------------------------------------------------
+
 
 import os
 from flask import Flask, render_template, request
