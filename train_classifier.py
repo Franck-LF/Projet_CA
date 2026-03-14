@@ -76,11 +76,12 @@ vectorizer = TfidfVectorizer()
 tfidf_texts_matrix = vectorizer.fit_transform(df_data.Texts)
 print("X.shape:", tfidf_texts_matrix.shape)
 
-# Save the vectorizer
+# Save the data vectorized
 filename = f"VECTORS/X_texts.npz"
 sp.sparse.save_npz(filename, tfidf_texts_matrix)
 
-filename = f"VECTORS/vectorizer_ia_texts.pkl"
+# Save the vectorizer
+filename = f"MODELS/vectorizer_ia_texts.pkl"
 with open(filename, 'wb') as file:
     pickle.dump(vectorizer, file)
     
@@ -108,7 +109,7 @@ with mlflow.start_run():
     print('Fit the Model OK')
 
     # Save the model
-    filename = f"VECTORS/reglog_ia_texts.pkl"
+    filename = f"MODELS/reglog_ia_texts.pkl"
     with open(filename, 'wb') as file:
         pickle.dump(model, file)
 
@@ -143,43 +144,3 @@ with mlflow.start_run():
     # mlflow.trace()
 
 mlflow.end_run()
-
-
-# # Model
-# model = LogisticRegression()
-# model.fit(X_train, y_train)
-
-# # Save the model
-# filename = f"VECTORS/reglog_ia_texts.pkl"
-# with open(filename, 'wb') as file:
-#     pickle.dump(model, file)
-
-# print("Model Score:", model.score(X_test, y_test))
-# # print("Model Accuracy:", model.accuracy_score(X_test, y_test))
-
-# y_pred = model.predict(X_train)
-# print("Training Accuracy", accuracy_score(y_train, y_pred))
-# print("Training Precision", precision_score(y_train, y_pred))
-# print("Training Recall", recall_score(y_train, y_pred))
-
-# # Predicting with a validation dataset
-# y_pred = model.predict(X_test)
-# print("Test Accuracy", accuracy_score(y_test, y_pred))
-# print("Test Precision", precision_score(y_test, y_pred))
-# print("Test Recall", recall_score(y_test, y_pred))
-
-# print(classification_report(y_test, y_pred))
-# cm = confusion_matrix(y_test, y_pred)
-# print(cm)
-
-# # test 1
-# phrase = ["je dois déclarer un sinistre"]
-# X_test = vectorizer.transform(phrase)
-# prediction = model.predict(X_test)
-# print("Assurance ?" , prediction[0])
-
-# # test 2
-# phrase = ["recette de cuisine"]
-# X_test = vectorizer.transform(phrase)
-# prediction = model.predict(X_test)
-# print("Assurance ?" , prediction[0])

@@ -44,7 +44,7 @@ def Load_Pickle(filename):
 
 
 
-MODEL_PATH = "VECTORS/"
+MODEL_PATH = "MODELS/"
 vectorizer = Load_Pickle(MODEL_PATH + "vectorizer_ia_texts.pkl")
 model = Load_Pickle(MODEL_PATH + "reglog_ia_texts.pkl")
 
@@ -76,7 +76,7 @@ def create_jwt(duration: int) -> str:
         SECRET_KEY, # Server side
         algorithm="HS256" # Hashing algorithm
     )
-    
+
 @app.post("/token")
 def generate_token(request: TokenRequest):
     """

@@ -28,7 +28,7 @@ def Load_Pickle(filename):
 
 # load_dotenv()
 
-PATH = "VECTORS/"
+PATH = "MODELS/"
 
 
 # ------------------------------------------

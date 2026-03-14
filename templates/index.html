@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Classification Assurance</title>
+
+    <style>
+
+        body{
+            font-family: Arial, sans-serif;
+            background-color:#f4f6f8;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+            margin:0;
+        }
+
+        .container{
+            background:white;
+            padding:30px;
+            border-radius:10px;
+            width:500px;
+            box-shadow:0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        h1{
+            text-align:center;
+        }
+
+        textarea{
+            width:100%;
+            padding:10px;
+            font-size:14px;
+            border-radius:6px;
+            border:1px solid #ccc;
+            resize:none;
+        }
+
+        button{
+            margin-top:15px;
+            width:100%;
+            padding:12px;
+            font-size:16px;
+            background-color:#007bff;
+            color:white;
+            border:none;
+            border-radius:6px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background-color:#0056b3;
+        }
+
+        .result{
+            margin-top:20px;
+            padding:15px;
+            border-radius:6px;
+        }
+
+        .positive{
+            background-color:#e6f7e6;
+            color:#2d7a2d;
+        }
+
+        .negative{
+            background-color:#fde8e8;
+            color:#b52b2b;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Classification Assurance</h1>
+
+<form method="post">
+
+<textarea name="text" rows="4" placeholder="Entrez un mot ou une phrase..."></textarea>
+
+<button type="submit">Analyser</button>
+
+</form>
+
+{% if result %}
+
+<div class="result {% if result.is_assurance %}positive{% else %}negative{% endif %}">
+
+<h3>Résultat</h3>
+
+<p><strong>Probabilité :</strong> {{ result.probability }}</p>
+
+{% if result.is_assurance %}
+
+<p>Ce texte concerne probablement <strong>l'assurance</strong>.</p>
+
+{% else %}
+
+<p>Ce texte ne semble pas concerner <strong>l'assurance</strong>.</p>
+
+{% endif %}
+
+</div>
+
+{% endif %}
+
+</div>
+
+</body>
+</html>
