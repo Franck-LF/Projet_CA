@@ -3,18 +3,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-*.csv
-*.pdf
-*.html
-*.zip
 
 # Folder
-DIV/
-PDF/
-Images/
-Pres_IA/
-env_ca/
 DIV DOC/
+env_ca/
 DOC ASSURANCE/
 DOC ASSURANCE - Copie/
 DOC NO ASSURANCE/
