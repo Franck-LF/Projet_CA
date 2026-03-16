@@ -73,42 +73,24 @@
 </head>
 
 <body>
-
-<div class="container">
-
-<h1>Classification Assurance</h1>
-
-<form method="post">
-
-<textarea name="text" rows="4" placeholder="Entrez un mot ou une phrase..."></textarea>
-
-<button type="submit">Analyser</button>
-
-</form>
-
-{% if result %}
-
-<div class="result {% if result.is_assurance %}positive{% else %}negative{% endif %}">
-
-<h3>Résultat</h3>
-
-<p><strong>Probabilité :</strong> {{ result.probability }}</p>
-
-{% if result.is_assurance %}
-
-<p>Ce texte concerne probablement <strong>l'assurance</strong>.</p>
-
-{% else %}
-
-<p>Ce texte ne semble pas concerner <strong>l'assurance</strong>.</p>
-
-{% endif %}
-
-</div>
-
-{% endif %}
-
-</div>
-
+    <div class="container">
+        <h1>Classification Assurance</h1>
+        <form method="post">
+            <textarea name="text" rows="4" placeholder="Entrez un mot ou une phrase..."></textarea>
+            <button type="submit">Analyser</button>
+        </form>
+        
+        {% if result %}
+            <div class="result {% if result.is_assurance %}positive{% else %}negative{% endif %}">
+                <h3>Résultat</h3>
+                <p><strong>Probabilité :</strong> {{ result.probability }}</p>
+                {% if result.is_assurance %}
+                    <p>Ce texte concerne probablement <strong>l'assurance</strong>.</p>
+                {% else %}
+                    <p>Ce texte ne semble pas concerner <strong>l'assurance</strong>.</p>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
 </body>
 </html>

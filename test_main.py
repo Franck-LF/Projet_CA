@@ -85,7 +85,8 @@ def test_vectorizer_output_dimension():
     X_transformed = vectorizer.transform(["Simple texte pour faire mon test"])
     print("TF-IDF output:", X_transformed.shape)
     print("Classifier input:", model.coef_.shape[1])
-    assert X_transformed.shape[1] == model.coef_.shape[1], f"ATTENTION !!!\n {X_transformed.shape[1]} != {model.coef_.shape[1]}"
+    assert X_transformed.shape[1] == model.coef_.shape[1], \
+            f"ATTENTION !!!\n {X_transformed.shape[1]} != {model.coef_.shape[1]}"
 
 
 
