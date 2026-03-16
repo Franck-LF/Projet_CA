@@ -90,9 +90,9 @@ def test_vectorizer_output_dimension():
 
 
 
-if __name__ == "__main__":
-    print("START MAIN")
-    test_model_file()
-    # test_load_model()
-    # test_vectorizer_file()
-    # test_load_vectorizer()
+# if __name__ == "__main__":
+#     print("START MAIN")
+#     test_model_file()
+#     test_load_model()
+#     test_vectorizer_file()
+#     test_load_vectorizer()
