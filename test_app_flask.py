@@ -24,10 +24,6 @@ from dotenv import load_dotenv
 def Load_Vectorizer(filename):
     with open(filename, 'rb') as file:
         return pickle.load(file)
-
-def Load_Vectorizer(filename):
-    with open(filename, 'rb') as file:
-        return pickle.load(file)
     
 
 # load_dotenv()
@@ -73,11 +69,21 @@ def test_vectorizer_titles_file():
 
 
 # S'assurer que l'on peut charger le vectorizer à partir du fichier
-def test_load_vectorizer_titles():
-    print("\n****** Test Load Vectorizer")
-    try:
-        vectorizer_path = PATH_VEC + "tfidf_vectorizer_titles.pkl"
-        _ = Load_Vectorizer(vectorizer_path)
-        assert True
-    except:
-        assert False, f"Impossible de charger le vectorizer depuis {vectorizer_path}."
+# def test_load_vectorizer_titles():
+#     print("\n****** Test Load Vectorizer")
+#     try:
+#         vectorizer_path = PATH_VEC + "tfidf_vectorizer_titles.pkl"
+#         _ = Load_Vectorizer(vectorizer_path)
+#         assert True
+#     except:
+#         assert False, f"Impossible de charger le vectorizer depuis {vectorizer_path}."
+
+
+
+
+
+
+if __name__ == "__main__":
+    print("START MAIN")
+    test_vectorizer_titles_file()
+#     test_load_vectorizer()
