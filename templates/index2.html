@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Moteur de recherche</title>
+
+<style>
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+.container {
+    width: 600px;
+    margin: 120px auto;
+    text-align: center;
+}
+
+h1 {
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+.search-box {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+}
+
+.search-button {
+    margin-top: 15px;
+    padding: 10px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 20px;
+    background-color: #4285f4;
+    color: white;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #357ae8;
+}
+
+.results {
+    margin-top: 40px;
+    text-align: left;
+}
+
+.result-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>Moteur de recherche ABP</h1>
+
+<form method="POST">
+    <input class="search-box" type="text" name="query" placeholder="Tapez votre recherche..." required>
+    <br>
+    <button class="search-button" type="submit">Rechercher</button>
+</form>
+
+{% if results is not none %}
+<div class="results">
+
+<h2>Résultats</h2>
+
+{% for doc in results %}
+<div class="result-item">
+    {{ doc }}
+</div>
+{% endfor %}
+
+</div>
+{% endif %}
+
+</div>
+
+</body>
+</html>

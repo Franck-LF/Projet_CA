@@ -141,6 +141,8 @@ def tfidf_search(query, top_k = 5, threshold = 0.03):
         query = map(remove_stopwords_punct, query)
         query = map(lemmatizer_CONCAT, query)
         query = list(map(unidecode, query))
+        print("A")
+        print("query_lemm: ", query)
         tfidf_query = tfidf_vectorizer_titles.transform(query)
         similarities = cosine_similarity(tfidf_query, tfidf_matrix_titles).flatten()
 

@@ -4,6 +4,10 @@
 #
 # - Cette appli Flask requête l'API FastAPI qui expose le modèle d'IA de classification.
 #
+# Se lance avec la commande : Python app.py
+#
+# (Accès: http://127.0.0.1:5000)
+#
 # ---------------------------------------------------------------
 
 
@@ -21,7 +25,6 @@ app = Flask(__name__)
 
 # ---------------- Routes ----------------
 
-app = Flask(__name__)
 
 FASTAPI_URL = "http://127.0.0.1:8000/predict"
 
