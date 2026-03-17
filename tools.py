@@ -1,5 +1,5 @@
 import os
-# import re
+import re
 import spacy
 import pandas as pd
 import pdfplumber
@@ -17,20 +17,20 @@ def extract_text_from_pdf(path_and_filename:str) -> str:
     return text
 
 def clean_folder_path(text:str) -> str:
-    return str
+    # return str
     return re.sub(r"/^([a-zA-Z]:\\)([-\u4e00-\u9fa5\w\s.()~!@#$%^&()\[\]{}+=]+\\)*$/gm", ' ', text)
 
 def clean_spaces_and_line_terminator(text:str) -> str:
     text = text.replace('\n', ' ')
-    return str
+    # return str
     return re.sub(r" +", ' ', text).strip()
 
 def clean_XXX(text:str) -> str:
-    return str
+    # return str
     return re.sub(r"x{2,}", ' ', text)
 
 def clean_special_char(text:str) -> str:
-    return str
+    # return str
     text = re.sub(r"…", '.', text)
     text = text.replace('.', ' ')
     text = text.replace(',', ' ')
