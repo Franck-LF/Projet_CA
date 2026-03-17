@@ -76,6 +76,7 @@ def extract_text_from_all_docs(path:str, nb_max:int = 10) ->pd.DataFrame:
         if len(text.strip()) > 0:
             lst_texts.append(text)
             lst_titles.append(item)
+
     return pd.DataFrame.from_dict({
         'Titles': lst_titles,
         'Texts': lst_texts,
@@ -83,7 +84,8 @@ def extract_text_from_all_docs(path:str, nb_max:int = 10) ->pd.DataFrame:
 
 def init_nlp():
     df_sw = pd.read_csv('CSV/stopwords-fr_CUSTOM.csv')
-    nlp = spacy.load("fr_core_news_md")
+    # nlp = spacy.load("fr_core_news_md")
+    nlp = spacy.load("fr_core_news_sm")
     nlp.Defaults.stop_words.clear()
     nlp.Defaults.stop_words |= {word for word in df_sw.values.flatten().tolist()}
     return nlp
