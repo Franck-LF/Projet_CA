@@ -100,8 +100,25 @@ def test_load_tfidf_matrixs():
         assert False, f"Impossible de charger la matrice TF-IDF des documents depuis {tfidf_matrix_path}."
 
 
+# S'assurer que la dimension de sortie du vectorizer est cohérente avec 
+# la dimension de la matrice TF-IDF déjà calculée à partir de notre base documentaire
+def test_vectorizer_output_dimension():
+    vectorizer_path = PATH_VEC + "tfidf_vectorizer_titles.pkl"
+    vectorizer = Load_Vectorizer(vectorizer_path)
+    tfidf_matrix_path = PATH_VEC + "tfidf_matrix_titles.npz"
+    tfidf_matrix = sp.sparse.load_npz(tfidf_matrix_path)
+    X_transformed = vectorizer.transform(["Simple texte pour faire mon test"])
+    print("TF-IDF Matrix Shape:", X_transformed.shape)
+    print("TF-IDF Matrix Shape:", tfidf_matrix.shape)
+    assert X_transformed.shape[1] == tfidf_matrix.shape[1], \
+            f"ATTENTION !!!\n {X_transformed.shape[1]} != {tfidf_matrix.shape[1]}"
 
-# if __name__ == "__main__":
-#     print("START MAIN")
+
+
+if __name__ == "__main__":
+    print("START MAIN")
     # test_vectorizer_titles_file()
 #     test_load_vectorizer()
+    test_vectorizer_output_dimension()
+
+
