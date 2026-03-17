@@ -2,7 +2,14 @@
 #
 # Application Flask pour l'interface utilisateur du moteur de recherche
 #
-# - Cette appli Flask ...
+# Cette application Flask charge :
+# - le dataframe avec les informations sur les documents d'assurance
+# - les matrices TF-IDF des titres et des textes
+# - le vectorizer TF-IDF
+#
+# Elle expose une interface web pour faire des requêtes de recherche de documents
+# Elle utilise la similarité cosinus pour trouver les documents les plus similaires à la requête
+# Elle Se lance avec la commande : Python app.py
 #
 # ---------------------------------------------------------------
 
@@ -107,7 +114,7 @@ print("BASE_DIR:", BASE_DIR)
 # dashboard.config.init_from(file=BASE_DIR + '\\config.cfg')
 
 # Pour relier le dashboard à cette app Flask
-# dashboard.bind(app)
+dashboard.bind(app)
 
 
 if __name__ == "__main__":
