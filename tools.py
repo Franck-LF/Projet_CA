@@ -17,6 +17,7 @@ def extract_text_from_pdf(path_and_filename:str) -> str:
     return text
 
 def clean_folder_path(text:str) -> str:
+    return str
     return re.sub(r"/^([a-zA-Z]:\\)([-\u4e00-\u9fa5\w\s.()~!@#$%^&()\[\]{}+=]+\\)*$/gm", ' ', text)
 
 def clean_spaces_and_line_terminator(text:str) -> str:
@@ -87,7 +88,7 @@ def init_nlp():
 nlp = init_nlp()
 # print(nlp.Defaults.stop_words)
 
-def remove_stopwords_punct(text:str) -> List:
+def remove_stopwords_punct(text:str) -> List[str]:
     doc = nlp(text)
     # for token in doc:
     #     print(token.text, token.lemma_, token.is_stop)
