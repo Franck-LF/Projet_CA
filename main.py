@@ -165,3 +165,4 @@ async def predict(text: str,
         "assurance_probability": float(prediction),
         "is_assurance": bool(prediction > 0.5)
     }
+

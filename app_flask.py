@@ -98,7 +98,7 @@ def index2():
                 results.append(title)
                 if len(results) >= 10:
                     break
-            
+
             print("Results:", results)
         else:
             print("No query provided.")
