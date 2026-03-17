@@ -37,6 +37,7 @@ PATH_VEC = "VECTORS/"
 #           Mes tests
 #
 # ------------------------------------------
+
 # S'assurer que le fichier avec le dataframe avec les informations sur les documents existe bien
 def test_df_data_documents_file():
     print("\n****** Test df_data documents")
@@ -80,10 +81,21 @@ def test_load_df_data_documents():
 
 
 
+# filename = f"VECTORS/tfidf_matrix_titles.npz"
+# tfidf_matrix_titles = sp.sparse.load_npz(filename)
+
+# S'assurer que le fichier avec la matrice TF-IDF des documents existe bien
+def test_tfidf_matrix():
+    print("\n****** Test TF-IDF Matrix")
+    try:
+        df_data_path = PATH_VEC + "tfidf_matrix_titles.npz"
+        assert Path(df_data_path).exists()
+    except:
+        assert False, f"Le fichier {df_data_path} est introuvable."
 
 
 
 if __name__ == "__main__":
     print("START MAIN")
-    test_vectorizer_titles_file()
+    # test_vectorizer_titles_file()
 #     test_load_vectorizer()
