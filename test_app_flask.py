@@ -21,14 +21,19 @@ from dotenv import load_dotenv
 
 
 
-# ---------------- Model ----------------
-# def Load_Pickle(filename):
-#     with open(filename, 'rb') as file:
-#         return pickle.load(file)
+def Load_Vectorizer(filename):
+    with open(filename, 'rb') as file:
+        return pickle.load(file)
+
+def Load_Vectorizer(filename):
+    with open(filename, 'rb') as file:
+        return pickle.load(file)
+    
 
 # load_dotenv()
 
 PATH_CSV = "CSV/"
+PATH_VEC = "VECTORS/"
 
 
 # ------------------------------------------
@@ -57,43 +62,22 @@ def test_load_df_data_documents():
         assert False, f"Impossible de charger le dataframe des documents depuis {df_data_path}."
 
 
-# # S'assurer que le fichier de vectorizer existe bien
-# def test_vectorizer_file():
-#     print("\n****** Test Vectorizer File")
-#     try:
-#         vectorizer_path = PATH + "vectorizer_ia_texts.pkl"
-#         assert Path(vectorizer_path).exists()
-#     except:
-#         assert False, f"Le fichier {vectorizer_path} est introuvable."
-
-# # S'assurer que l'on peut charger le vectorizer
-# def test_load_vectorizer():
-#     print("\n****** Test Load Vectorizer")
-#     try:
-#         vectorizer_path = PATH + "vectorizer_ia_texts.pkl"
-#         _ = Load_Pickle(vectorizer_path)
-#         assert True
-#     except:
-#         assert False, f"Impossible de charger le vectorizer depuis {vectorizer_path}."
-
-# # # S'assurer que la forme de sortie du vectorizer est cohérente avec 
-# # # la forme d'entrée du classifieur (Logistic regression)
-# def test_vectorizer_output_dimension():
-#     vectorizer_path = PATH + "vectorizer_ia_texts.pkl"
-#     vectorizer = Load_Pickle(vectorizer_path)
-#     model_path = PATH + "reglog_ia_texts.pkl"
-#     model = Load_Pickle(model_path)
-#     X_transformed = vectorizer.transform(["Simple texte pour faire mon test"])
-#     print("TF-IDF output:", X_transformed.shape)
-#     print("Classifier input:", model.coef_.shape[1])
-#     assert X_transformed.shape[1] == model.coef_.shape[1], \
-#             f"ATTENTION !!!\n {X_transformed.shape[1]} != {model.coef_.shape[1]}"
+# S'assurer que les fichiers de vectorizer existent bien
+def test_vectorizer_file():
+    print("\n****** Test Vectorizer File")
+    try:
+        vectorizer_path = PATH_VEC + "tfidf_vectorizer_titles.pkl"
+        assert Path(vectorizer_path).exists() and Path(vectorizer_path).exists()
+    except:
+        assert False, f"Le fichier {vectorizer_path} est introuvable."
 
 
-
-# if __name__ == "__main__":
-#     print("START MAIN")
-#     test_model_file()
-#     test_load_model()
-#     test_vectorizer_file()
-#     test_load_vectorizer()
+# S'assurer que l'on peut charger le vectorizer à partir du fichier
+def test_load_vectorizer():
+    print("\n****** Test Load Vectorizer")
+    try:
+        vectorizer_path = PATH_VEC + "tfidf_vectorizer.pkl"
+        _ = Load_Vectorizer(vectorizer_path)
+        assert True
+    except:
+        assert False, f"Impossible de charger le vectorizer depuis {vectorizer_path}."
