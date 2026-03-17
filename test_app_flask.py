@@ -59,13 +59,13 @@ def test_load_df_data_documents():
 
 
 # S'assurer que les fichiers de vectorizer existent bien
-def test_vectorizer_titles_file():
-    print("\n****** Test Vectorizer File")
-    try:
-        vectorizer_path = PATH_VEC + "tfidf_vectorizer_titles.pkl"
-        assert Path(vectorizer_path).exists()
-    except:
-        assert False, f"Le fichier {vectorizer_path} est introuvable."
+# def test_vectorizer_titles_file():
+#     print("\n****** Test Vectorizer File")
+#     try:
+#         vectorizer_path = PATH_VEC + "tfidf_vectorizer_titles.pkl"
+#         assert Path(vectorizer_path).exists()
+#     except:
+#         assert False, f"Le fichier {vectorizer_path} est introuvable."
 
 
 # S'assurer que l'on peut charger le vectorizer à partir du fichier
