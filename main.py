@@ -35,8 +35,8 @@ load_dotenv()
 SECRET_KEY = os.getenv("SECRET_KEY")
 API_PASSWORD = os.getenv("API_PASSWORD")
 
-print("SECRET_KEY:", SECRET_KEY)
-print("API_PASSWORD:", API_PASSWORD)
+# print("SECRET_KEY:", SECRET_KEY)
+# print("API_PASSWORD:", API_PASSWORD)
 
 
 
