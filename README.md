@@ -1,3 +1,9 @@
+## Ce dépôt GitHub contient 2 projets :
+Projet 1 : Moteur de Recherche pour Documents d'Assurance
+Projet 2 : Classification de documents d'Assurance
+
+---
+
 # 🔎 Projet 1 : Moteur de Recherche pour Documents d’Assurance
 
 Projet développé au sein du Crédit Agricole (CR22), propose un moteur de recherche interne permettant d’explorer efficacement un corpus de documents liés au domaine des **assurances** grâce à des techniques de traitement du langage naturel (NLP) et de similarité sémantique.
@@ -159,7 +165,7 @@ Projet réalisé dans le cadre du développement d’un outil interne de recherc
 ---
 
 
-# 📄 Projet 2 : classification de documents d'Assurance
+# 📄 Projet 2 : Classification de documents d'Assurance
 
 Ce projet propose une solution complète de traitement et de classification de documents basée sur l’intelligence artificielle. Il est structuré en deux parties principales :
 
