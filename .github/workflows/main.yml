@@ -31,10 +31,9 @@ jobs:
     needs: tests_job
     steps:
       - name: Deploy to production
-        #uses: johnbeynon/render-deploy-action@v0.0.8
+        #uses: johnbeynon/render-deploy-action@v0.0.8 (OLD)
         uses: JorgeLNJunior/render-deploy@v1.4.6
         with:
           service_id: ${{ secrets.MY_RENDER_SERVICE_ID }}
           api_key: ${{ secrets.MY_RENDER_API_KEY }}
           wait_deploy: true
-          # wait-for-success: true
