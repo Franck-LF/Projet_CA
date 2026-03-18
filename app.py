@@ -14,6 +14,15 @@
 import os
 from flask import Flask, render_template, request
 import requests
+from dotenv import load_dotenv
+
+
+# Environnement variables
+load_dotenv()
+
+SECRET_KEY = os.getenv("SECRET_KEY")
+API_PASSWORD = os.getenv("API_PASSWORD")
+USERNAME = os.getenv("USERNAME")
 
 
 
@@ -28,13 +37,16 @@ app = Flask(__name__)
 
 FASTAPI_URL = "http://127.0.0.1:8000/predict"
 
+# Lors d'un déploiement sur Render on utilisera cette URL:
+# FASTAPI_URL = "https://binary-classification.onrender.com/predict"
+
 
 # récupérer token
 token_response = requests.post(
     "http://127.0.0.1:8000/token",
     data={
-        "username": "admin",
-        "password": "admin"
+        "username": USERNAME,
+        "password": API_PASSWORD
     }
 )
 

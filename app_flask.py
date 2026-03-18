@@ -29,17 +29,10 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 
 
-# ---------------- Model ----------------
-# def Load_Pickle(filename):
-#     with open(filename, 'rb') as file:
-#         return pickle.load(file)
-
+# ---------------- Vectorizer ----------------
 def Load_Vectorizer(filename):
     with open(filename, 'rb') as file:
         return pickle.load(file)
-
-# MODEL_PATH = "MODELS/"
-# vectorizer = Load_Pickle(MODEL_PATH + "vectorizer_ia_texts.pkl")
 
 # Load the dataframe with documents information
 df_data = pd.read_csv("CSV/df_data.csv", index_col = [0])
