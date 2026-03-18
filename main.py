@@ -125,7 +125,7 @@ def root():
     return {"message": "API assurance active"}
 
 @app.post("/predict")
-async def predict(text: str,
+async def predict(text: str = Query(None, alias="requête utilisateur", description="Requête utilisateur", example="Délai de traitement d'une dérogation"),
             credentials: HTTPAuthorizationCredentials = Depends(security)
             ):
     """
