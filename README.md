@@ -5,15 +5,15 @@ Projet 2 : Classification de documents d'Assurance
 
 ---
 
-# 🔎 Projet 1 : Moteur de Recherche pour Documents d’Assurance
+# Projet 1 : Moteur de Recherche pour Documents d’Assurance
 
-Projet développé au sein du Crédit Agricole (CR22), propose un moteur de recherche interne permettant d’explorer efficacement un corpus de documents liés au domaine des **assurances** grâce à des techniques de traitement du langage naturel (NLP) et de similarité sémantique.
+Projet développé au sein du Crédit Agricole (CR22), propose un moteur de recherche permettant d'explorer efficacement un corpus de documents du **service ABP** (Assurance des Biens et des Personnes), basé sur des techniques de traitement du langage naturel (NLP), de calcul de similarité sémantique et de stockage en base de données vectorielles.
 
 ---
 
-# 🎯 Objectif
+# Objectif
 
-Permettre aux utilisateurs de retrouver rapidement les documents les plus pertinents à partir d’un mot-clé ou d’une phrase, en s’appuyant sur :
+Permettre aux utilisateurs du service ABP de retrouver rapidement les documents les plus pertinents à partir d’un mot-clé ou d’une phrase, en s’appuyant sur :
 
 * une **analyse textuelle avancée**
 * des méthodes de **vectorisation classique et moderne**
@@ -21,11 +21,11 @@ Permettre aux utilisateurs de retrouver rapidement les documents les plus pertin
 
 ---
 
-# 🧠 Fonctionnalités principales
+# Fonctionnalités principales
 
-## 📄 1. Analyse et nettoyage des documents
+## 1. Analyse et nettoyage des documents
 
-Les documents sont prétraités afin d’améliorer la qualité des recherches :
+Les documents sont analysés toutes les nuits :
 
 * Nettoyage du texte (suppression des caractères inutiles, normalisation)
 * Traitement linguistique avec **SpaCy**
@@ -33,24 +33,16 @@ Les documents sont prétraités afin d’améliorer la qualité des recherches :
 
 ---
 
-## 🔢 2. Vectorisation des textes
+## 2. Vectorisation des textes
 
 Deux approches complémentaires sont utilisées :
 
-### 🔹 TF-IDF (Scikit-learn)
-
-* Transformation des documents en vecteurs basés sur la fréquence des termes
-* Méthode rapide et efficace pour capturer les mots importants
-
-### 🔹 Embeddings sémantiques
-
-* Utilisation du modèle **Sentence-Camembert-Large**
-* Capture du **sens global des phrases**
-* Permet une recherche plus intelligente (au-delà des mots exacts)
+### Vectorisation TF-IDF (Scikit-learn)
+### Embeddings sémantiques à l'aide du modèle **Sentence-Camembert-Large**
 
 ---
 
-## 🔍 3. Recherche de similarité
+## 3. Recherche de similarité
 
 Lorsqu’un utilisateur saisit une requête :
 
@@ -63,18 +55,43 @@ Lorsqu’un utilisateur saisit une requête :
 
 ---
 
-## 📊 4. Résultats
+## 4. Résultats
 
 L’application retourne :
 
-* les documents les plus pertinents
+* une liste des documents les plus pertinents
 * classés par score de similarité
 
 ---
 
-# 🌐 5. Application Web (Flask)
+Deux version de ce moteur de recherche sont disponibles
+
+# 5. Application Web (Streamlit)
 
 Une interface simple permet d’interagir avec le moteur de recherche :
+
+## Fonctionnement :
+
+1. L’utilisateur saisit une requête (mot ou phrase)
+2. L’application :
+
+   * envoie la requête au moteur de recherche
+   * calcule les similarités
+
+3. Les résultats sont affichés :
+
+   * liste de documents pertinents avec nom des auteurs et date de dernière modification
+   * lorsqu'un document de la liste est sélectionné un aperçu des documents s'affiche
+
+4. Options disponibles :
+   * Un système de filtre de documents est disponible
+   * 2 modes de recherche : recherche dans les titres / recherche dans le contenu des documents
+   * Possibilité de diminuer / augmenter le nombre de résultats dans la liste
+   * Possibilité de télécharger les documents
+
+# 5 bis. Application Web (Flask)
+
+Une interface Web minimale permet d’interagir avec le moteur de recherche :
 
 ## Fonctionnement :
 
@@ -89,15 +106,15 @@ Une interface simple permet d’interagir avec le moteur de recherche :
 
 ---
 
-# 🏗️ Architecture
+# Architecture
 
 ```
-Utilisateur → Interface Flask → Traitement NLP → Vectorisation → Similarité → Résultats
+Utilisateur → Interface Flask / Streamlit → Traitement NLP → Vectorisation → Similarité → Résultats
 ```
 
 ---
 
-# 🛠️ Installation
+# Installation
 
 ## 1. Cloner le projet
 
@@ -108,7 +125,12 @@ cd <repo_name>
 
 ---
 
-## 2. Installer les dépendances
+## 2. Installer un environnement avec les dépendances
+
+```bash
+python -m venv my_env
+```
+
 
 ```bash
 pip install -r requirements.txt
@@ -116,52 +138,43 @@ pip install -r requirements.txt
 
 ---
 
-## ▶️ Lancer l’application
+## 3. Lancer l'analyse des documents et le calculs des vectorisations
 
 ```bash
-python app.py
+python traitement_nocturne.py
+```
+
+---
+
+## 4. Lancer l’application Streamlit
+
+```bash
+streamlit run app_streamlit.py
 ```
 
 Puis accéder à l’application via :
 
 ```
-http://localhost:5000
+http://localhost:8501/
+```
+
+## 4 bis. Lancer l’application Flask
+
+```bash
+python app_flask.py
+```
+
+Puis accéder à l’application via :
+
+```
+http://127.0.0.1:5000/
 ```
 
 ---
 
-# 📦 Technologies utilisées
+# Déploiement
 
-* Python
-* Flask
-* SpaCy
-* Scikit-learn (TF-IDF)
-* Sentence Transformers (Camembert)
-* NumPy / SciPy
-
----
-
-# 🚀 Améliorations possibles
-
-* Ajout d’un système de filtrage avancé (type de document, date…)
-* Mise en place d’un index vectoriel (FAISS, Annoy)
-* Interface utilisateur plus avancée
-* Support multi-utilisateurs
-* Déploiement cloud
-
----
-
-# 📌 Cas d’usage
-
-* Recherche rapide dans des documents internes d’assurance
-* Aide à la décision pour les équipes métiers
-* Centralisation de l’information documentaire
-
----
-
-# 👨‍💻 Auteur
-
-Projet réalisé dans le cadre du développement d’un outil interne de recherche documentaire basé sur l’intelligence artificielle.
+....
 
 ---
 
