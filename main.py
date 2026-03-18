@@ -157,12 +157,12 @@ async def predict(text: str,
     prediction = model.predict(X_data)[0]
     # print("prediction:", prediction)
 
-    # prediction_proba = model.predict_proba(X_data)[0]
+    prediction_proba = model.predict_proba(X_data)[0]
     # print("prediction_proba:", prediction_proba)
 
     return {
         "text": text,
-        "assurance_probability": float(prediction),
+        "assurance_probability": float(prediction_proba),
         "is_assurance": bool(prediction > 0.5)
     }
 
