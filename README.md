@@ -1,4 +1,165 @@
-# 📄 Projet de moteur de recherche documentaire et de classification de documents d'Assurance
+# 🔎 Projet 1 : Moteur de Recherche pour Documents d’Assurance
+
+Projet développé au sein du Crédit Agricole (CR22), propose un moteur de recherche interne permettant d’explorer efficacement un corpus de documents liés au domaine des **assurances** grâce à des techniques de traitement du langage naturel (NLP) et de similarité sémantique.
+
+---
+
+# 🎯 Objectif
+
+Permettre aux utilisateurs de retrouver rapidement les documents les plus pertinents à partir d’un mot-clé ou d’une phrase, en s’appuyant sur :
+
+* une **analyse textuelle avancée**
+* des méthodes de **vectorisation classique et moderne**
+* une **recherche par similarité sémantique**
+
+---
+
+# 🧠 Fonctionnalités principales
+
+## 📄 1. Analyse et nettoyage des documents
+
+Les documents sont prétraités afin d’améliorer la qualité des recherches :
+
+* Nettoyage du texte (suppression des caractères inutiles, normalisation)
+* Traitement linguistique avec **SpaCy**
+* Préparation des données pour les étapes de vectorisation
+
+---
+
+## 🔢 2. Vectorisation des textes
+
+Deux approches complémentaires sont utilisées :
+
+### 🔹 TF-IDF (Scikit-learn)
+
+* Transformation des documents en vecteurs basés sur la fréquence des termes
+* Méthode rapide et efficace pour capturer les mots importants
+
+### 🔹 Embeddings sémantiques
+
+* Utilisation du modèle **Sentence-Camembert-Large**
+* Capture du **sens global des phrases**
+* Permet une recherche plus intelligente (au-delà des mots exacts)
+
+---
+
+## 🔍 3. Recherche de similarité
+
+Lorsqu’un utilisateur saisit une requête :
+
+1. Le texte est prétraité
+2. Il est vectorisé (TF-IDF + embeddings)
+3. Une **similarité cosinus** est calculée entre :
+
+   * la requête utilisateur
+   * les documents du corpus
+
+---
+
+## 📊 4. Résultats
+
+L’application retourne :
+
+* les documents les plus pertinents
+* classés par score de similarité
+
+---
+
+# 🌐 5. Application Web (Flask)
+
+Une interface simple permet d’interagir avec le moteur de recherche :
+
+## Fonctionnement :
+
+1. L’utilisateur saisit une requête (mot ou phrase)
+2. L’application :
+
+   * envoie la requête au moteur de recherche
+   * calcule les similarités
+3. Les résultats sont affichés :
+
+   * liste de documents pertinents
+
+---
+
+# 🏗️ Architecture
+
+```
+Utilisateur → Interface Flask → Traitement NLP → Vectorisation → Similarité → Résultats
+```
+
+---
+
+# 🛠️ Installation
+
+## 1. Cloner le projet
+
+```bash
+git clone <repo_url>
+cd <repo_name>
+```
+
+---
+
+## 2. Installer les dépendances
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## ▶️ Lancer l’application
+
+```bash
+python app.py
+```
+
+Puis accéder à l’application via :
+
+```
+http://localhost:5000
+```
+
+---
+
+# 📦 Technologies utilisées
+
+* Python
+* Flask
+* SpaCy
+* Scikit-learn (TF-IDF)
+* Sentence Transformers (Camembert)
+* NumPy / SciPy
+
+---
+
+# 🚀 Améliorations possibles
+
+* Ajout d’un système de filtrage avancé (type de document, date…)
+* Mise en place d’un index vectoriel (FAISS, Annoy)
+* Interface utilisateur plus avancée
+* Support multi-utilisateurs
+* Déploiement cloud
+
+---
+
+# 📌 Cas d’usage
+
+* Recherche rapide dans des documents internes d’assurance
+* Aide à la décision pour les équipes métiers
+* Centralisation de l’information documentaire
+
+---
+
+# 👨‍💻 Auteur
+
+Projet réalisé dans le cadre du développement d’un outil interne de recherche documentaire basé sur l’intelligence artificielle.
+
+---
+
+
+# 📄 Projet 2 : classification de documents d'Assurance
 
 Ce projet propose une solution complète de traitement et de classification de documents basée sur l’intelligence artificielle. Il est structuré en deux parties principales :
 
