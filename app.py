@@ -24,7 +24,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 API_PASSWORD = os.getenv("API_PASSWORD")
 USERNAME = os.getenv("USERNAME")
 
-
+ 
 
 # ---------------- Flask App --------------
 app = Flask(__name__)
