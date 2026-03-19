@@ -1,6 +1,6 @@
 # Ce dépôt GitHub contient 2 projets
 
-<h1 style="color:#2E86C1;">Projet 1</h1>
+<h1 style="color:#2EFFC1;">Projet 1</h1>
 Projet 1 : Moteur de Recherche pour Documents d'Assurance<br>
 Projet 2 : Classification de documents d'Assurance
 
