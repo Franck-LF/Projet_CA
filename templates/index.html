@@ -83,7 +83,7 @@
         {% if result %}
             <div class="result {% if result.is_assurance %}positive{% else %}negative{% endif %}">
                 <h3>Résultat</h3>
-                <p><strong>Probabilité :</strong> {{ result.probability }}</p>
+                <p><strong>Probabilité :</strong> {{ result.assurance_probability }}</p>
                 {% if result.is_assurance %}
                     <p>Ce texte concerne probablement <strong>l'assurance</strong>.</p>
                 {% else %}

@@ -125,7 +125,7 @@ def root():
     return {"message": "API assurance active"}
 
 @app.post("/predict")
-async def predict(text: str = Query(None, alias="requête utilisateur", description="Requête utilisateur", example="Délai de traitement d'une dérogation"),
+async def predict(text: str = Query(None, alias="text", description="Requête utilisateur", example="Délai de traitement d'une dérogation"),
             credentials: HTTPAuthorizationCredentials = Depends(security)
             ):
     """
@@ -154,16 +154,20 @@ async def predict(text: str = Query(None, alias="requête utilisateur", descript
     text_ = [' '.join(df.Texts_Token.values[0])]
     print("text_: ", text_)
     X_data = vectorizer.transform(text_)
-    # print("X_data:", X_data)
+    print("X_data:", X_data)
     prediction = model.predict(X_data)[0]
-    # print("prediction:", prediction)
+    print("prediction:", prediction)
 
     prediction_proba = model.predict_proba(X_data)[0]
-    # print("prediction_proba:", prediction_proba)
+    print("prediction_proba:", prediction_proba)
+    print("Max prediction_proba:", max(prediction_proba))
+    index = 0 if prediction_proba[0] == max(prediction_proba) else 1
+    print("Argmax", index)
 
     return {
         "text": text,
-        "assurance_probability": float(prediction_proba),
-        "is_assurance": bool(prediction > 0.5)
+        "assurance_probability": float(prediction_proba[1]),
+        "no_assurance_probability": float(prediction_proba[0]),
+        "is_assurance": bool((prediction_proba[1]) > 0.5)
     }
 

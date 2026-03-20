@@ -21,12 +21,8 @@ def Load_Pickle(filename):
     with open(filename, 'rb') as file:
         return pickle.load(file)
 
-# test_local = False
-# PATH = ""
-# if test_local:
-#     PATH =  "C:/Users/Utilisateur/Documents/Livrable_BUG/"
 
-# load_dotenv()
+
 
 PATH = "MODELS/"
 

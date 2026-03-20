@@ -351,8 +351,6 @@ http://127.0.0.1:8000/docs/
 
 ---
 
----
-
 ## 5. Lancer l'application Flask
 
 ```bash
@@ -364,7 +362,5 @@ Puis accéder à l’application via :
 ```
 http://127.0.0.1:5000/
 ```
-
----
 
 ---

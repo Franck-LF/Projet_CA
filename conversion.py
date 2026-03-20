@@ -15,13 +15,8 @@ from typing import List, Dict
 
 import pandas as pd
 
-# import pdfplumber
-# import pymupdf # Allows to add key-words to the document as metadata
-# from pptx import Presentation
-# from docx import Document
 from docx2pdf import convert as convert_docx
 from pptxtopdf import convert as convert_pptx
-# from openpyxl import load_workbook
 from win32com import client
 
 
