@@ -15,11 +15,8 @@ import jwt
 import datetime
 import pandas as pd
 import pickle
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.linear_model import LogisticRegression
-from fastapi import FastAPI, Query, Depends, HTTPException, Header, Request
+from fastapi import FastAPI, Query, Depends, HTTPException
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
-from fastapi.templating import Jinja2Templates
 from tools import cleaning_process, remove_stopwords_punct
 from typing import Optional
 from pydantic import BaseModel
@@ -34,10 +31,6 @@ load_dotenv()
 
 SECRET_KEY = os.getenv("SECRET_KEY")
 API_PASSWORD = os.getenv("API_PASSWORD")
-
-# print("SECRET_KEY:", SECRET_KEY)
-# print("API_PASSWORD:", API_PASSWORD)
-
 
 
 # ---------------- Model ----------------
@@ -63,7 +56,7 @@ security = HTTPBearer()
 # Modèle pour l'authentification
 class TokenRequest(BaseModel):
     password: str
-    duration: Optional[int] = 3600  # in seconds
+    duration: Optional[int] = 3600  # en secondes
 
 
 def create_jwt(duration: int) -> str:
@@ -88,10 +81,11 @@ def generate_token(request: TokenRequest):
      - **param request** :  Objet TokenRequest contenant le mot de passe et la durée
      - return : Token JWT
     """
-    print("request.password:", request.password)
+    print("request:", request)
     if request.password != API_PASSWORD:
-        raise HTTPException(status_code=401, detail="Invalid password")
+        raise HTTPException(status_code=401, detail="Mot de passe invalide")
     token = create_jwt(request.duration)
+    print("return token:", token)
     return {"token": token}
 
 async def verify_token(credentials: HTTPAuthorizationCredentials = Depends(security)):
@@ -105,24 +99,21 @@ async def verify_token(credentials: HTTPAuthorizationCredentials = Depends(secur
     try:
         jwt.decode(credentials.credentials, SECRET_KEY, algorithms=["HS256"])
     except jwt.ExpiredSignatureError:
-        raise HTTPException(status_code=401, detail="Token expired")
+        print("Token expiré")
+        raise HTTPException(status_code=401, detail="Token expiré")
     except jwt.InvalidTokenError:
-        raise HTTPException(status_code=401, detail="Invalid token")
+        print("Token invalide")
+        raise HTTPException(status_code=401, detail="Token invalide")
 
-
-
-
-# @app.get("/")
-# async def home(request: Request):
-#     '''
-#         Page d'accueil
-#     '''
-#     return {'Titre' : "API IA Assurance active"}
 
 
 @app.get("/")
 def root():
+    '''
+       Page d'accueil
+    '''
     return {"message": "API assurance active"}
+
 
 @app.post("/predict")
 async def predict(text: str = Query(None, alias="text", description="Requête utilisateur", example="Délai de traitement d'une dérogation"),
@@ -135,8 +126,6 @@ async def predict(text: str = Query(None, alias="text", description="Requête ut
     """
 
     await verify_token(credentials)
-
-    print("Received text for prediction:", text)
 
     if len(text.strip()) == 0:
         return {
@@ -152,12 +141,11 @@ async def predict(text: str = Query(None, alias="text", description="Requête ut
     df['Texts_Cleaned']  = df['Texts'].apply(cleaning_process)
     df['Texts_Token']  = df['Texts_Cleaned'].apply(remove_stopwords_punct)
     text_ = [' '.join(df.Texts_Token.values[0])]
-    print("text_: ", text_)
+    print("text nettoyé: ", text_)
     X_data = vectorizer.transform(text_)
     print("X_data:", X_data)
     prediction = model.predict(X_data)[0]
-    print("prediction:", prediction)
-
+    print("prediction {0, 1}:", prediction)
     prediction_proba = model.predict_proba(X_data)[0]
     print("prediction_proba:", prediction_proba)
     print("Max prediction_proba:", max(prediction_proba))

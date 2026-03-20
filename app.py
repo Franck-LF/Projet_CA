@@ -35,22 +35,26 @@ app = Flask(__name__)
 # ---------------- Routes ----------------
 
 
-FASTAPI_URL = "http://127.0.0.1:8000/predict"
+FASTAPI_URL = "http://127.0.0.1:8000/"
 
 # Lors d'un déploiement sur Render on utilisera cette URL:
-# FASTAPI_URL = "https://binary-classification.onrender.com/predict"
+# FASTAPI_URL = "https://binary-classification.onrender.com/"
 
 
-# récupérer token
-token_response = requests.post(
-    "http://127.0.0.1:8000/token",
-    data={
-        "username": USERNAME,
-        "password": API_PASSWORD
+
+payload = {
+        "password": API_PASSWORD, #"admin",
+        "duration": 3600
     }
-)
 
-token = token_response.json()["detail"][0]["input"].split("&")[1].split("=")[1]
+def get_token():
+    response = requests.post(
+        FASTAPI_URL + "token",
+        json = payload
+    )
+    data = response.json()
+    print("data:", data)
+    return data["token"]
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -59,13 +63,19 @@ def index():
     result = None
 
     if request.method == "POST":
+
+        token = get_token()
+        headers = {
+            "Authorization": f"Bearer {token}"
+        }
+
         text = request.form["text"]
         print("Text:", text)
 
         response = requests.post(
-            FASTAPI_URL,
-            params={"text": text},
-            headers={"Authorization": f"Bearer {token}"}
+            FASTAPI_URL + "predict",
+            params = {"text" : text},
+            headers = headers
         )
         
         print("Response Status Code:", response.status_code)
@@ -75,9 +85,6 @@ def index():
         print("Result:", result)
     return render_template("index.html", result=result)
 
-
-# if __name__ == "__main__":
-#     app.run(debug=True, port=5000)
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))  # prend le port fourni par Render
