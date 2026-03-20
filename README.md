@@ -1,6 +1,5 @@
 # Ce dépôt GitHub contient 2 projets
 
-<h1 style="color:#2EFFC1;">Projet 1</h1>
 Projet 1 : Moteur de Recherche pour Documents d'Assurance<br>
 Projet 2 : Classification de documents d'Assurance
 
@@ -8,7 +7,7 @@ Projet 2 : Classification de documents d'Assurance
 
 # Projet 1 : Moteur de Recherche pour Documents d’Assurance
 
-Projet développé au sein du Crédit Agricole (CR22), propose un moteur de recherche permettant d'explorer efficacement un corpus de documents du **service ABP** (Assurance des Biens et des Personnes), basé sur des techniques de traitement du langage naturel (NLP), de calcul de similarité sémantique et de stockage en base de données vectorielles.
+Projet développé au sein du Crédit Agricole (CR22), propose un moteur de recherche permettant d'explorer efficacement un corpus de documents du **service ABP** (Assurance des Biens et des Personnes), basé sur des techniques de traitement du langage naturel (NLP) et de calcul de similarité sémantique.
 
 ---
 
@@ -16,25 +15,49 @@ Projet développé au sein du Crédit Agricole (CR22), propose un moteur de rech
 
 Permettre aux utilisateurs du service ABP de retrouver rapidement les documents les plus pertinents à partir d’un mot-clé ou d’une phrase, en s’appuyant sur :
 
-* une **analyse textuelle avancée**
-* des méthodes de **vectorisation classique et moderne**
-* une **recherche par similarité sémantique**
+* une **analyse textuelle avancée**,
+* des méthodes de **vectorisation classique et moderne**,
+* une **recherche par similarité sémantique**.
 
 ---
 
 # Fonctionnalités principales
 
-## 1. Analyse et nettoyage des documents
+## 1. Analyse et Extraction des textes bruts
 
-Les documents sont analysés toutes les nuits :
+Outils pour l'extraction des textes bruts :
 
-* Nettoyage du texte (suppression des caractères inutiles, normalisation)
-* Traitement linguistique avec **SpaCy**
-* Préparation des données pour les étapes de vectorisation
+* PDF → `pdfplumber`
+* Word → `python-docx`
+* Excel → `openpyxl`
+* PowerPoint → `python-pptx`
 
 ---
 
-## 2. Vectorisation des textes
+## 2. Conversion des documents en PDF
+
+* `docx2pdf` → conversion des Word en PDF
+* `pptxtopdf` → conversion des PowerPoint en PDF
+* `win32com` → convertion des Excel en PDF
+
+---
+
+## 3. Nettoyage des textes
+
+Les textes extraits sont nettoyés via :
+
+* Expressions régulières (**RegEx**)
+* Traitement linguistique avec **SpaCy**
+
+Objectifs :
+
+* Nettoyage du texte (suppression des caractères inutiles, normalisation),
+* Traitement linguistique avec **SpaCy**,
+* Préparation des données pour les étapes de vectorisation.
+
+---
+
+## 4. Vectorisation des textes
 
 Deux approches complémentaires sont utilisées :
 
@@ -43,7 +66,7 @@ Deux approches complémentaires sont utilisées :
 
 ---
 
-## 3. Recherche de similarité
+## 5. Recherche de similarité
 
 Lorsqu’un utilisateur saisit une requête :
 
@@ -76,19 +99,19 @@ Une interface simple permet d’interagir avec le moteur de recherche :
 1. L’utilisateur saisit une requête (mot ou phrase)
 2. L’application :
 
-   * envoie la requête au moteur de recherche
-   * calcule les similarités
+   * envoie la requête au moteur de recherche,
+   * calcule les similarités.
 
 3. Les résultats sont affichés :
 
-   * liste de documents pertinents avec nom des auteurs et date de dernière modification
-   * lorsqu'un document de la liste est sélectionné un aperçu des documents s'affiche
+   * liste de documents pertinents avec nom des auteurs et date de dernière modification,
+   * lorsqu'un document de la liste est sélectionné un aperçu des documents s'affiche.
 
 4. Options disponibles :
-   * Un système de filtre de documents est disponible
-   * 2 modes de recherche : recherche dans les titres / recherche dans le contenu des documents
-   * Possibilité de diminuer / augmenter le nombre de résultats dans la liste
-   * Possibilité de télécharger les documents
+   * Un système de filtre de documents est disponible,
+   * 2 modes de recherche : recherche dans les titres / recherche dans le contenu des documents,
+   * Possibilité de diminuer / augmenter le nombre de résultats dans la liste,
+   * Possibilité de télécharger les documents.
 
 # 5 bis. Application Web (Flask)
 
@@ -99,19 +122,12 @@ Une interface Web minimale permet d’interagir avec le moteur de recherche :
 1. L’utilisateur saisit une requête (mot ou phrase)
 2. L’application :
 
-   * envoie la requête au moteur de recherche
-   * calcule les similarités
+   * envoie la requête au moteur de recherche,
+   * calcule les similarités.
+
 3. Les résultats sont affichés :
 
    * liste de documents pertinents
-
----
-
-# Architecture
-
-```
-Utilisateur → Interface Flask / Streamlit → Traitement NLP → Vectorisation → Similarité → Résultats
-```
 
 ---
 
@@ -120,8 +136,8 @@ Utilisateur → Interface Flask / Streamlit → Traitement NLP → Vectorisation
 ## 1. Cloner le projet
 
 ```bash
-git clone <repo_url>
-cd <repo_name>
+git clone <https://github.com/Franck-LF/Projet_CA>
+cd <nom_du_dossier>
 ```
 
 ---
@@ -131,7 +147,6 @@ cd <repo_name>
 ```bash
 python -m venv my_env
 ```
-
 
 ```bash
 pip install -r requirements.txt
@@ -173,109 +188,63 @@ http://127.0.0.1:5000/
 
 ---
 
-# Déploiement
+# Projet 2 : Classification de documents d'Assurance
 
-....
-
----
-
-
-# 📄 Projet 2 : Classification de documents d'Assurance
-
-Ce projet propose une solution complète de traitement et de classification de documents basée sur l’intelligence artificielle. Il est structuré en deux parties principales :
+Ce projet propose une solution de traitement et de classification de documents basée sur l’intelligence artificielle. Il est structuré en deux parties principales :
 
 1. **Une API FastAPI intégrant un modèle de machine learning**
 2. **Une application Flask avec une interface web simple pour interagir avec le modèle**
 
 ---
 
-# 🚀 1. API FastAPI & Modèle de Machine Learning
+# 1. API FastAPI & Modèle de Machine Learning
 
-## 🎯 Objectif
+## Objectif
 
 Analyser différents types de documents et déterminer si leur contenu est lié au domaine des **assurances** ou non.
 
 ---
 
-## 📥 Extraction des données
+## Analyse des documents
 
-Le projet prend en charge plusieurs formats de fichiers :
-
-* PDF → `pdfplumber`
-* Word → `python-docx`
-* Excel → `openpyxl`
-* PowerPoint → `python-pptx`
+Le traitement des documents et des textes des documents est identique que pour le projet 1.
 
 ---
 
-## 🔄 Conversion en PDF
+## Séparation des données pour l'entraînement
 
-Afin d’uniformiser le traitement, les fichiers sont convertis en PDF :
-
-* `docx2pdf`
-* `pptxtopdf`
-* `win32com`
-
----
-
-## 🧹 Nettoyage des données
-
-Les textes extraits sont nettoyés via :
-
-* Expressions régulières (**RegEx**)
-* Traitement linguistique avec **SpaCy**
-
-Objectifs :
-
-* Suppression des caractères inutiles
-* Normalisation du texte
-* Préparation pour le modèle
-
----
-
-## 🧠 Feature Engineering
-
-* Encodage des textes avec **TF-IDF** (`scikit-learn`)
-* Transformation des textes en vecteurs numériques exploitables
-
----
-
-## ✂️ Préparation des données
-
-* Séparation des données :
-
+* Labellisation des données :
   * **Assurance**
   * **Non assurance**
 * **Chunking** des textes (découpage en segments)
 * Split :
-
   * Données d'entraînement
   * Données de test
 
 ---
 
-## 🤖 Modélisation
+## Entraînement d'un modèle d'IA
 
 * Modèle utilisé : **Régression Logistique** (`scikit-learn`)
 * Objectif : classification binaire
 
 ---
 
-## 📊 Suivi des performances
+## Suivi des performances
 
 * Tracking des expérimentations avec **MLflow**
 * Sauvegarde des métriques et résultats
 
 ---
 
-## 💾 Sauvegarde des artefacts
+## Sauvegarde
 
 * Vectorizer TF-IDF
 * Modèle de régression logistique
 
 ---
 
-## 🔌 API FastAPI
+## API FastAPI
 
 Une API est exposée pour permettre l’utilisation du modèle :
 
@@ -297,21 +266,25 @@ POST /predict
 
 ```json
 {
-  "prediction": "assurance"
+  "prediction": "assurance",
+  "text": "text",
+  "assurance_probability": 0.86746815,
+  "no_assurance_probability": 0.13253185,
+  "is_assurance": "True"
 }
 ```
 
 ---
 
-# 🌐 2. Application Web Flask
+# 2. Application Web Flask
 
-## 🎯 Objectif
+## Objectif
 
 Fournir une interface utilisateur simple pour interagir avec le modèle.
 
 ---
 
-## 🖥️ Fonctionnement
+## Fonctionnement
 
 1. L’utilisateur saisit :
 
@@ -333,26 +306,22 @@ Fournir une interface utilisateur simple pour interagir avec le modèle.
 
 ---
 
-## 🔄 Architecture globale
-
-```
-Utilisateur → Interface Flask → API FastAPI → Modèle ML → Résultat → Interface Flask
-```
-
----
-
-# 🛠️ Installation
+# Installation
 
 ## 1. Cloner le projet
 
 ```bash
-git clone <repo_url>
-cd <repo_name>
+git clone <https://github.com/Franck-LF/Projet_CA>
+cd <nom_du_dossier>
 ```
 
 ---
 
-## 2. Installer les dépendances
+## 2. Installer un environnement avec les dépendances
+
+```bash
+python -m venv my_env
+```
 
 ```bash
 pip install -r requirements.txt
@@ -360,50 +329,42 @@ pip install -r requirements.txt
 
 ---
 
-## ▶️ Lancer les services
+## 3. Lancer l'entraînement du modèle
 
-### API FastAPI
+```bash
+python train_classifier.py
+```
+
+---
+
+## 4. Lancer l'API FastAPI
 
 ```bash
 uvicorn main:app --reload
 ```
 
+Puis accéder à la documentation en ligne de l'API via :
+
+```
+http://127.0.0.1:8000/docs/
+```
+
 ---
 
-### Application Flask
+---
+
+## 5. Lancer l'application Flask
 
 ```bash
 python app.py
 ```
 
----
+Puis accéder à l’application via :
 
-# 📦 Technologies utilisées
-
-* Python
-* FastAPI
-* Flask
-* Scikit-learn
-* SpaCy
-* MLflow
-* pdfplumber
-* python-docx
-* openpyxl
-* python-pptx
+```
+http://127.0.0.1:5000/
+```
 
 ---
-
-# 📌 Améliorations possibles
-
-* Ajout d’un modèle plus avancé (BERT, transformers)
-* Amélioration de l’interface utilisateur
-* Ajout de gestion multi-langue
-* Déploiement cloud optimisé
-
----
-
-# 👨‍💻 Auteur
-
-Projet réalisé dans le cadre d’un apprentissage en data science et développement web.
 
 ---
