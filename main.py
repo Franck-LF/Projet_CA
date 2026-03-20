@@ -134,7 +134,7 @@ async def predict(text: str = Query(None, alias="text", description="Requête ut
         Return: Un dictionnaire contenant le texte, la probabilité d'être un texte d'assurance, et une classification binaire.
     """
 
-    # await verify_token(credentials)
+    await verify_token(credentials)
 
     print("Received text for prediction:", text)
 
