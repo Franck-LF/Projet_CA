@@ -254,12 +254,12 @@ Une API est exposée pour permettre l’utilisation du modèle :
 POST /predict
 ```
 
-### Exemple de requête :
+### Exemple de requête http :
 
-```json
-{
-  "text": "Ce contrat couvre les risques liés à l'habitation."
-}
+pour la requête "traitement d'une dérogation" :
+
+```
+http://127.0.0.1:8000/predict?text=D%C3%A9lai%20de%20traitement%20d%27une%20d%C3%A9rogation
 ```
 
 ### Réponse :
