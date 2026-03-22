@@ -1,3 +1,21 @@
+# ---------------------------------------------------------------
+#
+# Script pour entraînement du modèle de classification binaire
+#
+# Etapes :
+# - Extraction des textes bruts des documents d'Assurances
+# - Extraction des textes bruts des documents non Assurances
+# - Nettoyage des textes
+# - Chunking des textes 
+# - Encodage des chunks à l'aide de TF-IDF
+# - Etiquettage des données (chunks + labels)
+# - Entraînement d'une régression logistique
+# - Evaluation des métriques de la régression logistique et enregistrement dans MLFlow
+# - Enregistrement du vectorizer TF-IDF et de la régression logistique
+#
+# ---------------------------------------------------------------
+
+
 
 import scipy as sp
 import pandas as pd

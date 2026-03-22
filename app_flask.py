@@ -1,6 +1,6 @@
 # ---------------------------------------------------------------
 #
-# Application Flask pour l'interface utilisateur du moteur de recherche
+# Application Flask pour l'interface utilisateur du "moteur de recherche"
 #
 # Cette application Flask charge :
 # - le dataframe avec les informations sur les documents d'assurance
