@@ -262,7 +262,8 @@ pour la requête "traitement d'une dérogation" :
 http://127.0.0.1:8000/predict?text=D%C3%A9lai%20de%20traitement%20d%27une%20d%C3%A9rogation
 ```
 
-### Réponse :
+### Réponse JSON avec la probabilité que la requête concerne les assurances :
+
 
 ```json
 {
