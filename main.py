@@ -159,3 +159,27 @@ async def predict(text: str = Query(None, alias="text", description="Requête ut
         "is_assurance": bool((prediction_proba[1]) > 0.5)
     }
 
+# @app.post("/predict")
+# async def predict(
+#     text: str = Query(None, alias="text", 
+#                       description="Requête utilisateur",
+#                       example="Délai de traitement d'une dérogation"),
+#     credentials: HTTPAuthorizationCredentials = Depends(security)
+#     ):
+
+#     await verify_token(credentials)
+ 
+#     df = pd.DataFrame.from_dict({'Texts': [text]})
+#     df['Texts_Cleaned']  = df['Texts'].apply(cleaning_process)
+#     df['Texts_Token']  = df['Texts_Cleaned'].apply(remove_stopwords_punct)
+#     text_ = [' '.join(df.Texts_Token.values[0])]
+#     X_data = vectorizer.transform(text_)
+#     prediction_proba = model.predict_proba(X_data)[0]
+
+#     return {
+#         "text": text,
+#         "assurance_probability": float(prediction_proba[1]),
+#         "no_assurance_probability": float(prediction_proba[0]),
+#         "is_assurance": bool((prediction_proba[1]) > 0.5)
+#     }
+

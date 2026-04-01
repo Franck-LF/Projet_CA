@@ -43,7 +43,7 @@ FASTAPI_URL = "http://127.0.0.1:8000/"
 
 
 payload = {
-        "password": API_PASSWORD, #"admin",
+        "password": API_PASSWORD,
         "duration": 3600
     }
 
