@@ -322,8 +322,8 @@ with st.sidebar:
 
     radio_content = st.radio(
         "Rechercher dans le :", [
-                                "titre", 
-                                "document", 
+                                "titre",
+                                "document",
                                 # "titre + chemin"
                                 ],
         help=(

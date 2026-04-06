@@ -110,7 +110,7 @@ def test_vectorizer_output_dimension():
     tfidf_matrix_path = PATH_VEC + "tfidf_matrix_titles.npz"
     tfidf_matrix = sp.sparse.load_npz(tfidf_matrix_path)
     X_transformed = vectorizer.transform(["Simple texte pour faire mon test"])
-    print("TF-IDF Matrix Shape:", X_transformed.shape)
+    print("Vectorize Shape:", X_transformed.shape)
     print("TF-IDF Matrix Shape:", tfidf_matrix.shape)
     assert X_transformed.shape[1] == tfidf_matrix.shape[1], \
             f"ATTENTION !!!\n {X_transformed.shape[1]} != {tfidf_matrix.shape[1]}"

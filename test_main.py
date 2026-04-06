@@ -13,6 +13,8 @@ import pickle
 import numpy as np
 from pathlib import Path
 from dotenv import load_dotenv
+from fastapi.testclient import TestClient
+from main import app
 
 # sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
@@ -32,6 +34,16 @@ PATH = "MODELS/"
 #           Mes tests
 #
 # ------------------------------------------
+
+
+client = TestClient(app)
+
+# S'assurer que la route "racine" est accessible
+def test_root():
+    response = client.get("/")
+    assert response.status_code == 200
+    assert response.json() == {"message": "API assurance active"}
+
 
 # S'assurer que le fichier avec le modèle existe bien
 def test_model_file():
